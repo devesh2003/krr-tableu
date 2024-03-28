@@ -120,10 +120,15 @@ def main():
     elements = dom.getElementsByTagName('block')
     # print_element(elements[0])
     
+    kb = []
     for elem in elements:
         for clause in elem.childNodes:
             if clause.nodeType == clause.ELEMENT_NODE:
-                print(construct_formula(clause))
+                # print(construct_formula(clause))
+                kb.append(construct_formula(clause))
+                
+    for clause in kb:
+        print(clause)
     
     return 
     for elem in elements:
