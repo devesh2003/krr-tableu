@@ -109,8 +109,12 @@ def construct_formula(elem):
     elif len(child_elements) == 2:
         first = construct_formula(child_elements[0])
         second = construct_formula(child_elements[1])
-        is_branch = elem.tagName == "or"
-        return Formula(first, second, branch=is_branch)
+        if elem.tagName == "implies":
+            is_branch = True # treat as AND
+            return Formula(Formula(first, branch=None), second, branch=is_branch)
+        else:
+            is_branch = elem.tagName == "or"
+            return Formula(first, second, branch=is_branch)
     else:
         raise ValueError("Unexpected number of child elements in formula construction")
 
