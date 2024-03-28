@@ -13,23 +13,25 @@ class Symbol:
 # P => Q, A => B
 class Formula:
     """
-    Represents a logical formula composed of two elements (symbols or sub-formulas)
-    connected by a logical operator (AND represented by ^ when branch is False, OR 
-    represented by ∨ when branch is True).
+    Represents a logical formula, which can be a combination of two formulas
+    by a single connective (e.g., A ^ B, A ∨ B, ¬A).
+    For unary operations like NOT, the second argument can be None.
     """
-    def __init__(self, first, second, branch=False):
-        self.branch = branch  # set to true for OR operator
+    def __init__(self, first, second=None, branch=None):
+        # For unary operations, `branch` can indicate the operation type (e.g., NOT)
+        self.branch = branch  # True for OR, False for AND, None for unary operations like NOT
         self.first = first
         self.second = second
 
     def __str__(self):
-        # Choose the connector based on the branch attribute
-        connector = " ∨ " if self.branch else " ^ "
-        return f"({self.first}{connector}{self.second})"
-
-    def __eq__(self, other):
-        # Implementing equality check can be complex and is not covered here as it wasn't part of the question
-        pass
+        if self.second is None:
+            if self.branch is None:  # Unary operation NOT
+                return f"¬{self.first}"
+            else:
+                raise ValueError("Invalid configuration for unary operation.")
+        else:
+            connector = "∨" if self.branch else "^"
+            return f"({self.first} {connector} {self.second})"
     
 class Node:
     def __init__(self, _type=1):
@@ -83,7 +85,7 @@ def print_element(elem, indent=0):
 
 def construct_formula(elem):
     """
-    Constructs a Formula object from an XML element, recursively.
+    Constructs a Formula or Symbol object from an XML element, recursively.
     
     Args:
     - elem: The current XML element to start construction from.
@@ -91,27 +93,27 @@ def construct_formula(elem):
     Returns:
     A Formula or Symbol object representing the XML structure.
     """
-    # Base case: if the current element is a variable, return a Symbol object
+    # Base case: variable
     if elem.tagName == "variable":
         return Symbol(elem.firstChild.data)
     
-    # Recursively construct the formula from child elements
-    # Assuming each element that's not a block will always have exactly 2 element nodes
+    # Unary operation: NOT
+    if elem.tagName == "not":
+        child = next(child for child in elem.childNodes if child.nodeType == child.ELEMENT_NODE)
+        return Formula(construct_formula(child), branch=None)
+    
+    # Binary operations: AND, OR, and others
     child_elements = [child for child in elem.childNodes if child.nodeType == child.ELEMENT_NODE]
-    
-    # Check if we have the correct structure (2 child elements)
-    if len(child_elements) != 2:
-        raise ValueError("Expected exactly two child elements for a formula")
-    
-    # Construct formulas/symbols from the child elements
-    first = construct_formula(child_elements[0])
-    second = construct_formula(child_elements[1])
-    
-    # Determine if the current element represents a branching operation (logical OR)
-    is_branch = elem.tagName == "or"
-    
-    # Create and return the Formula object
-    return Formula(first, second, branch=is_branch)
+    if len(child_elements) == 1:  # Handling unary operation NOT
+        return Formula(construct_formula(child_elements[0]), branch=None)
+    elif len(child_elements) == 2:
+        first = construct_formula(child_elements[0])
+        second = construct_formula(child_elements[1])
+        is_branch = elem.tagName == "or"
+        return Formula(first, second, branch=is_branch)
+    else:
+        raise ValueError("Unexpected number of child elements in formula construction")
+
 
 def main():
     dom = minidom.parse("KRR-2024/work/output/PL-01.xml")
