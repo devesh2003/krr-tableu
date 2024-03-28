@@ -1,0 +1,567 @@
+<program>
+    <fact>
+        <predicate name='hasBrother'>
+            <constant>lucy</constant>
+            <constant>jack</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='hasSister'>
+            <constant>jack</constant>
+            <constant>lucy</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='hasSibling'>
+            <constant>lucy</constant>
+            <constant>jack</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='hasSibling'>
+            <constant>jack</constant>
+            <constant>lucy</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='append'>
+            <nil/>
+            <variable>B</variable>
+            <variable>B</variable>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='append'>
+            <cons>
+                <variable>X</variable>
+                <variable>A</variable>
+            </cons>
+            <variable>B</variable>
+            <cons>
+                <variable>X</variable>
+                <variable>C</variable>
+            </cons>
+        </predicate>
+        <predicate name='append'>
+            <variable>A</variable>
+            <variable>B</variable>
+            <variable>C</variable>
+        </predicate>
+    </rule>
+    <query>
+        <predicate name='append'>
+            <cons>
+                <integer>1</integer>
+                <cons>
+                    <integer>2</integer>
+                    <nil/>
+                </cons>
+            </cons>
+            <cons>
+                <integer>3</integer>
+                <cons>
+                    <integer>4</integer>
+                    <nil/>
+                </cons>
+            </cons>
+            <variable>C</variable>
+        </predicate>
+        <predicate name='length'>
+            <variable>C</variable>
+            <integer>4</integer>
+        </predicate>
+    </query>
+    <query>
+        <predicate name='append'>
+            <cons>
+                <integer>1</integer>
+                <cons>
+                    <integer>2</integer>
+                    <nil/>
+                </cons>
+            </cons>
+            <cons>
+                <integer>3</integer>
+                <cons>
+                    <integer>4</integer>
+                    <nil/>
+                </cons>
+            </cons>
+            <variable>C</variable>
+        </predicate>
+        <predicate name='length'>
+            <variable>C</variable>
+            <integer>4</integer>
+        </predicate>
+    </query>
+    <query>
+        <predicate name='append'>
+            <cons>
+                <cons>
+                    <integer>1</integer>
+                    <cons>
+                        <integer>2</integer>
+                        <nil/>
+                    </cons>
+                </cons>
+                <cons>
+                    <cons>
+                        <integer>3</integer>
+                        <cons>
+                            <integer>4</integer>
+                            <nil/>
+                        </cons>
+                    </cons>
+                    <nil/>
+                </cons>
+            </cons>
+            <cons>
+                <cons>
+                    <integer>5</integer>
+                    <cons>
+                        <integer>6</integer>
+                        <nil/>
+                    </cons>
+                </cons>
+                <cons>
+                    <cons>
+                        <integer>7</integer>
+                        <cons>
+                            <integer>8</integer>
+                            <nil/>
+                        </cons>
+                    </cons>
+                    <cons>
+                        <cons>
+                            <integer>9</integer>
+                            <nil/>
+                        </cons>
+                        <nil/>
+                    </cons>
+                </cons>
+            </cons>
+            <variable>C</variable>
+        </predicate>
+        <predicate name='length'>
+            <variable>C</variable>
+            <integer>4</integer>
+        </predicate>
+    </query>
+    <query>
+        <cut/>
+        <predicate name='append'>
+            <cons>
+                <integer>1</integer>
+                <cons>
+                    <integer>2</integer>
+                    <nil/>
+                </cons>
+            </cons>
+            <cons>
+                <integer>3</integer>
+                <cons>
+                    <integer>4</integer>
+                    <nil/>
+                </cons>
+            </cons>
+            <variable>Z</variable>
+        </predicate>
+        <not>
+            <predicate name='length'>
+                <variable>C</variable>
+                <integer>5</integer>
+            </predicate>
+        </not>
+    </query>
+    <query>
+        <predicate name='append'>
+            <variable>X</variable>
+            <variable>Y</variable>
+            <cons>
+                <integer>1</integer>
+                <cons>
+                    <integer>2</integer>
+                    <cons>
+                        <integer>3</integer>
+                        <cons>
+                            <integer>4</integer>
+                            <cons>
+                                <integer>5</integer>
+                                <nil/>
+                            </cons>
+                        </cons>
+                    </cons>
+                </cons>
+            </cons>
+        </predicate>
+    </query>
+    <rule>
+        <predicate name='parent'>
+            <variable>P</variable>
+            <variable>X</variable>
+        </predicate>
+        <predicate name='mother'>
+            <variable>P</variable>
+            <variable>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='parent'>
+            <variable>P</variable>
+            <variable>X</variable>
+        </predicate>
+        <predicate name='father'>
+            <variable>P</variable>
+            <variable>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='grandparent'>
+            <variable>G</variable>
+            <variable>X</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>G</variable>
+            <variable>P</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>P</variable>
+            <variable>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>A</variable>
+            <variable>X</variable>
+        </predicate>
+        <predicate name='ancestor'>
+            <variable>X</variable>
+            <variable>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor2'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor2'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>X</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='ancestor2'>
+            <variable>A</variable>
+            <variable>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor3'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor3'>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='ancestor3'>
+            <variable>A</variable>
+            <variable>X</variable>
+        </predicate>
+        <predicate name='ancestor3'>
+            <variable>X</variable>
+            <variable>B</variable>
+        </predicate>
+    </rule>
+    <fact>
+        <predicate name='fib'>
+            <integer>0</integer>
+            <integer>1</integer>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='fib'>
+            <integer>1</integer>
+            <integer>1</integer>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='fib'>
+            <add>
+                <variable>N</variable>
+                <integer>2</integer>
+            </add>
+            <variable>W</variable>
+        </predicate>
+        <predicate name='fib'>
+            <variable>N</variable>
+            <variable>U</variable>
+        </predicate>
+        <predicate name='fib'>
+            <add>
+                <variable>N</variable>
+                <integer>1</integer>
+            </add>
+            <variable>V</variable>
+        </predicate>
+        <unifies>
+            <add>
+                <variable>U</variable>
+                <variable>V</variable>
+            </add>
+            <variable>W</variable>
+        </unifies>
+    </rule>
+    <fact>
+        <predicate name='fib'>
+            <integer>0</integer>
+            <integer>1</integer>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='fib'>
+            <integer>1</integer>
+            <integer>1</integer>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='fib'>
+            <function name='s'>
+                <function name='s'>
+                    <variable>N</variable>
+                </function>
+            </function>
+            <variable>V</variable>
+        </predicate>
+        <predicate name='fib'>
+            <variable>N</variable>
+            <variable>V1</variable>
+        </predicate>
+        <predicate name='fib'>
+            <function name='s'>
+                <variable>N</variable>
+            </function>
+            <variable>V2</variable>
+        </predicate>
+        <predicate name='plus'>
+            <variable>V1</variable>
+            <variable>V2</variable>
+            <variable>V</variable>
+        </predicate>
+    </rule>
+    <fact>
+        <predicate name='plus'>
+            <integer>0</integer>
+            <variable>C</variable>
+            <variable>C</variable>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='plus'>
+            <function name='s'>
+                <variable>A</variable>
+            </function>
+            <variable>B</variable>
+            <variable>C</variable>
+        </predicate>
+        <predicate name='plus'>
+            <variable>A</variable>
+            <function name='s'>
+                <variable>B</variable>
+            </function>
+            <variable>C</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='power'>
+            <variable>A</variable>
+            <integer>0</integer>
+            <variable>V</variable>
+        </predicate>
+        <cut/>
+        <unifies>
+            <variable>V</variable>
+            <integer>1</integer>
+        </unifies>
+    </rule>
+    <rule>
+        <predicate name='power'>
+            <variable>A</variable>
+            <variable>N</variable>
+            <variable>V</variable>
+        </predicate>
+        <predicate name='even'>
+            <variable>N</variable>
+        </predicate>
+        <cut/>
+        <predicate name='multiply'>
+            <variable>A</variable>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='multiply'>
+            <variable>M</variable>
+            <integer>2</integer>
+            <variable>N</variable>
+        </predicate>
+        <predicate name='power'>
+            <variable>B</variable>
+            <variable>M</variable>
+            <variable>V</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='power'>
+            <variable>A</variable>
+            <variable>N</variable>
+            <variable>V</variable>
+        </predicate>
+        <predicate name='multiply'>
+            <variable>A</variable>
+            <variable>A</variable>
+            <variable>B</variable>
+        </predicate>
+        <predicate name='plus'>
+            <variable>N1</variable>
+            <integer>1</integer>
+            <variable>N</variable>
+        </predicate>
+        <predicate name='multiple'>
+            <variable>M</variable>
+            <integer>2</integer>
+            <variable>N1</variable>
+        </predicate>
+        <predicate name='power'>
+            <variable>B</variable>
+            <variable>M</variable>
+            <variable>V2</variable>
+        </predicate>
+        <predicate name='multiply'>
+            <variable>V2</variable>
+            <variable>A</variable>
+            <variable>V</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='grandparent'>
+            <variable>G</variable>
+            <variable>X</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>G</variable>
+            <variable>P</variable>
+        </predicate>
+        <predicate name='parent'>
+            <variable>P</variable>
+            <variable>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='cousin'>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </predicate>
+        <notunifies>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </notunifies>
+        <not>
+            <predicate name='sibling'>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </predicate>
+        </not>
+        <predicate name='grandparent'>
+            <variable>Z</variable>
+            <variable>X</variable>
+        </predicate>
+        <predicate name='grandparent'>
+            <variable>Z</variable>
+            <variable>Y</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='americanCousin'>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </predicate>
+        <predicate name='cousin'>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </predicate>
+        <cut/>
+        <predicate name='american'>
+            <variable>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='composite'>
+            <variable>N</variable>
+        </predicate>
+        <gt>
+            <variable>N</variable>
+            <integer>1</integer>
+        </gt>
+        <not>
+            <predicate name='prime'>
+                <variable>N</variable>
+            </predicate>
+        </not>
+    </rule>
+    <rule>
+        <predicate name='composite'>
+            <variable>N</variable>
+        </predicate>
+        <gt>
+            <variable>N</variable>
+            <integer>1</integer>
+        </gt>
+        <not>
+            <predicate name='prime'>
+                <variable>N</variable>
+            </predicate>
+        </not>
+    </rule>
+    <rule>
+        <predicate name='composite'>
+            <variable>N</variable>
+        </predicate>
+        <gt>
+            <variable>N</variable>
+            <integer>1</integer>
+        </gt>
+        <not>
+            <predicate name='prime'>
+                <variable>N</variable>
+            </predicate>
+        </not>
+    </rule>
+</program>

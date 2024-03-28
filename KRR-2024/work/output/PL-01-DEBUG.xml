@@ -1,0 +1,26 @@
+<pl>
+    <block text='{' pos='2:0'>
+        <and pos='4:6'>
+            <variable pos='4:4'>P</variable>
+            <variable pos='4:10'>Q</variable>
+        </and>
+        <implies text='=&gt;' pos='5:6'>
+            <variable pos='5:4'>p</variable>
+            <variable pos='5:9'>R</variable>
+        </implies>
+        <implies text='=&gt;' pos='6:14'>
+            <and pos='6:7'>
+                <variable pos='6:5'>R</variable>
+                <variable pos='6:11'>S</variable>
+            </and>
+            <variable pos='6:17'>T</variable>
+        </implies>
+        <or pos='7:7'>
+            <not text='~' pos='7:4'>
+                <variable pos='7:5'>Q</variable>
+            </not>
+            <variable pos='7:10'>S</variable>
+        </or>
+        <variable pos='10:4'>T</variable>
+    </block>
+</pl>

@@ -1,0 +1,26 @@
+<pl>
+    <block>
+        <and>
+            <variable>P</variable>
+            <variable>Q</variable>
+        </and>
+        <implies>
+            <variable>p</variable>
+            <variable>R</variable>
+        </implies>
+        <implies>
+            <and>
+                <variable>R</variable>
+                <variable>S</variable>
+            </and>
+            <variable>T</variable>
+        </implies>
+        <or>
+            <not>
+                <variable>Q</variable>
+            </not>
+            <variable>S</variable>
+        </or>
+        <variable>T</variable>
+    </block>
+</pl>

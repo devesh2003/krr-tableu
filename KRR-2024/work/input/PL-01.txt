@@ -1,0 +1,11 @@
+# Alice Problem
+{
+    # KB
+    P and Q;
+    p => R;
+    (R and S) => T;
+    ~Q or S;
+
+    # Goal
+    T;
+}

@@ -1,0 +1,83 @@
+#---------------------------------------------------------------------
+# KEYWORDS and OPERATORS
+#---------------------------------------------------------------------
+#  ALL  EXISTS  FILLS  AND  =>  =  ->
+#  ALL  EXISTS  FILLS  AND  ⊑  ≐  →
+#---------------------------------------------------------------------
+#   ⊑   =>  (subsumed by)
+#   ≐   =   (equivalent to)
+#   →   ->  (instance of)
+#---------------------------------------------------------------------
+#  Examples from Brachman and Levesque
+#  Knowledge Representation and Reasoning
+#  Morgan Kaufmann Publichers
+#---------------------------------------------------------------------
+# 9.2 A DESCRIPTION LANGUAGE
+#---------------------------------------------------------------------
+
+{
+    Surgeon => Doctor ;
+
+    BlendedRedWine =
+      [AND Wine
+           [FILLS :Color red]
+           [EXISTS 2 :GrapeType]
+      ]
+    ;
+
+    ProgressiveCompany =
+      [AND Company
+           [EXISTS 7 :Director]
+           [ALL :Manager
+                [AND Woman
+                     [FILLS :Degree phD]
+                ]
+           ]
+           [FILLS :MinSalary 24.00/hour]
+      ]
+    ;
+}
+
+#---------------------------------------------------------------------
+# 9.4.2 Computing Satisfaction
+#---------------------------------------------------------------------
+
+WellRoundedCo =
+  [AND Company
+       [ALL :Manager [AND B-SchoolGrad
+                          [EXISTS 1 :TechnicalDegree]
+                     ]
+       ]
+  ]
+;
+
+HighTechCo =
+  [AND Company
+       [FILLS :Exchange nasdaq]
+       [ALL :Manager Techie]
+  ]
+;
+
+Techie = [EXISTS 2 :TechnicalDegree] ;
+
+#---------------------------------------------------------------------
+# 9.4.5 Computing Satisfaction
+#---------------------------------------------------------------------
+
+joe -> Person ;
+
+canCorp ->
+  [AND Company
+       [ALL :Manager Canadian]
+       [FILLS :Manager joe]
+  ]
+;
+
+ellen ->
+  [AND [EXISTS 1 :Child]
+       [ALL :Child [AND [FILLS :Pediatrician marianne]
+                        [ALL :Pediatrician Scandinavian]
+                   ]
+       ]
+  ]
+;

@@ -1,0 +1,87 @@
+#---------------------------------------------------------------------
+# KEYWORDS and OPERATORS
+#---------------------------------------------------------------------
+# true false ~ not and or => <= <=>
+# ⊤  ⊥  ~  ¬  ￢  ∧  ∨  ⊃  ⊂  ≡
+#---------------------------------------------------------------------
+#   ⊤   true
+#   ⊥   false
+#   ~   not
+#   ¬   not
+#   ￢  not
+#   ∧   and
+#   ∨   or
+#   ⊃   =>
+#   ⊂   <=
+#   ≡   <=>
+#---------------------------------------------------------------------
+{
+    # Associativity
+
+    [P and Q and R] <=> [(P and Q) and R] ;
+    [P or Q or R] <=> [(P or Q) or R] ;
+    [P => Q => R] <=> [P => (Q => R)] ;
+    [P <= Q <= R] <=> [(P <= Q) <= R] ;
+    [P <=> Q <=> R] <=> [P <=> (Q <=> R)] ;
+}
+
+{
+    # Precedence
+
+    [not P and Q] <=> [(not P) and Q] ;
+    [P or Q and R] <=> [P or (Q and R)] ;
+    [P => Q or R] <=> [P => (Q or R)] ;
+    [P => Q <= R] <=> [(P => Q) <= R] ;
+    [P <=> Q <= R] <=> [P <=> (Q <= R)] ;
+}
+
+{
+    [ p and (p => q) ] => q ;                                 #  Modus Ponens
+    [ (p => q) and ~q ] => ~p ;                               #  Modus Tollens
+    [ (p => q) and (q => r) ] => (p => r) ;                   #  Hypothetical Syllogism
+    [ (p or q) and ~p ] => q ;                                #  Disjunctive Syllogism
+    [ (p => q) and (r => s) and (p or r) ] => (q or s) ;      #  Constructive Dilemma
+    [ (p => q) and (r => s) and (~q or ~s) ] => (~p or ~r) ;  #  Destructive Dilemma
+    [ (p => q) and (r => s) and (p or ~s) ] => (q or ~r) ;    #  Bidirectional Dilemma
+    (p and q) => p ;                                          #  Simplification
+    p => (p or q) ;                                           #  Addition
+    [ (p => q) and (p => r) ] => [ p => (q and r) ] ;         #  Composition
+}
+
+{
+    [ ~(p and q) ]  <=> [ ~p or ~q ] ;                        #  De Morgan's Theorem (1)
+    [ ~(p or q) ]  <=> [ ~p and ~q ] ;                        #  De Morgan's Theorem (2)
+    [ p or q ]  <=> [ q or p ] ;                              #  Commutation (1)
+    [ p and q ]  <=> [ q and p ] ;                            #  Commutation (2)
+    [ p  <=> q ]  <=> [ q  <=> p ] ;                          #  Commutation (3)
+    [ p or (q or r) ]  <=> [ (p or q) or r ] ;                #  Association (1)
+    [ p and (q and r) ]  <=> [ (p and q) and r ] ;            #  Association (2)
+    [ p and (q or r) ]  <=> [ (p and q) or (p and r) ] ;      #  Distribution (1)
+    [ p or (q and r) ]  <=> [ (p or q) and (p or r) ] ;       #  Distribution (2)
+    [ p ]  <=> [ ~~p ] ;                                      #  Double Negation
+    [ p => q ]  <=> [ ~q => ~p ] ;                            #  Transposition
+    [ p => q ]  <=> [ ~p or q ] ;                             #  Material Implication
+    [ p  <=> q ]  <=> [ (p => q) and (q => p) ] ;             #  Material Equivalence (1)
+    [ p  <=> q ]  <=> [ (p and q) or (~ p and ~ q) ] ;        #  Material Equivalence (2)
+    [ p  <=> q ]  <=> [ (p or ~ q) and (~ p or q) ] ;         #  Material Equivalence (3)
+}
+
+# Alice Problem
+{
+    # KB
+    P and Q;
+    p => R;
+    (R and S) => T;
+    ~Q or S;
+
+    # Goal
+    T;
+}
+
+[ (p and q) => r ] => [ p => (q => r) ] ;                 #  Exportation[13]
+[ p => (q => r) ] => [ (p and q) => r ] ;                 #  Importation
+
+[ p ]  <=> [ p or p ] ;                                   #  Tautology (1)
+[ p ]  <=> [ p and p ] ;                                  #  Tautology (2)
+[ p or ~p ]  <=> true ;                                   #  Law of Excluded Middle
+[ ~(p and ~p) ]  <=> true ;                               #  Law of Non-Contradiction

@@ -1,0 +1,967 @@
+<fol>
+    <block>
+        <forall>
+            <var-list>
+                <variable>X</variable>
+                <variable>Y</variable>
+                <variable>Z</variable>
+            </var-list>
+            <implies>
+                <and>
+                    <predicate name='p'>
+                        <variable>X</variable>
+                        <variable>Y</variable>
+                    </predicate>
+                    <predicate name='p'>
+                        <variable>Y</variable>
+                        <variable>Z</variable>
+                    </predicate>
+                </and>
+                <predicate name='p'>
+                    <variable>X</variable>
+                    <variable>Z</variable>
+                </predicate>
+            </implies>
+        </forall>
+        <forall>
+            <var-list>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </var-list>
+            <implies>
+                <and>
+                    <predicate name='p'>
+                        <variable>X</variable>
+                        <variable>Y</variable>
+                    </predicate>
+                    <predicate name='p'>
+                        <variable>Y</variable>
+                        <variable>X</variable>
+                    </predicate>
+                </and>
+                <eq>
+                    <variable>X</variable>
+                    <variable>Y</variable>
+                </eq>
+            </implies>
+        </forall>
+        <forall>
+            <var-list>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </var-list>
+            <implies>
+                <predicate name='p'>
+                    <constant>a</constant>
+                    <variable>Y</variable>
+                </predicate>
+                <predicate name='p'>
+                    <variable>X</variable>
+                    <constant>b</constant>
+                </predicate>
+            </implies>
+        </forall>
+        <block>
+            <forall>
+                <variable>X</variable>
+                <forall>
+                    <variable>Y</variable>
+                    <forall>
+                        <variable>Z</variable>
+                        <implies>
+                            <and>
+                                <predicate name='p'>
+                                    <variable>X</variable>
+                                    <variable>Y</variable>
+                                </predicate>
+                                <predicate name='p'>
+                                    <variable>Y</variable>
+                                    <variable>Z</variable>
+                                </predicate>
+                            </and>
+                            <predicate name='p'>
+                                <variable>X</variable>
+                                <variable>Z</variable>
+                            </predicate>
+                        </implies>
+                    </forall>
+                </forall>
+            </forall>
+            <forall>
+                <variable>X</variable>
+                <forall>
+                    <variable>Y</variable>
+                    <implies>
+                        <and>
+                            <predicate name='p'>
+                                <variable>X</variable>
+                                <variable>Y</variable>
+                            </predicate>
+                            <predicate name='p'>
+                                <variable>Y</variable>
+                                <variable>X</variable>
+                            </predicate>
+                        </and>
+                        <eq>
+                            <variable>X</variable>
+                            <variable>Y</variable>
+                        </eq>
+                    </implies>
+                </forall>
+            </forall>
+            <forall>
+                <variable>X</variable>
+                <forall>
+                    <variable>Y</variable>
+                    <implies>
+                        <predicate name='p'>
+                            <constant>a</constant>
+                            <variable>Y</variable>
+                        </predicate>
+                        <predicate name='p'>
+                            <variable>X</variable>
+                            <constant>b</constant>
+                        </predicate>
+                    </implies>
+                </forall>
+            </forall>
+        </block>
+    </block>
+    <forall>
+        <variable>Y</variable>
+        <implies>
+            <and>
+                <predicate name='rich'>
+                    <variable>Y</variable>
+                </predicate>
+                <predicate name='man'>
+                    <variable>Y</variable>
+                </predicate>
+            </and>
+            <predicate name='loves'>
+                <variable>Y</variable>
+                <constant>jane</constant>
+            </predicate>
+        </implies>
+    </forall>
+    <forall>
+        <variable>Y</variable>
+        <implies>
+            <and>
+                <predicate name='woman'>
+                    <variable>Y</variable>
+                </predicate>
+                <ne>
+                    <variable>Y</variable>
+                    <constant>jane</constant>
+                </ne>
+            </and>
+            <predicate name='loves'>
+                <variable>Y</variable>
+                <constant>john</constant>
+            </predicate>
+        </implies>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </var-list>
+        <implies>
+            <predicate name='loves'>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </predicate>
+            <not>
+                <predicate name='blackMails'>
+                    <variable>X</variable>
+                    <variable>Y</variable>
+                </predicate>
+            </not>
+        </implies>
+    </forall>
+    <or>
+        <predicate name='loves'>
+            <constant>jane</constant>
+            <constant>john</constant>
+        </predicate>
+        <predicate name='loves'>
+            <constant>jane</constant>
+            <constant>jim</constant>
+        </predicate>
+    </or>
+    <exists>
+        <variable>X</variable>
+        <and>
+            <predicate name='adult'>
+                <variable>X</variable>
+            </predicate>
+            <predicate name='blackMails'>
+                <variable>X</variable>
+                <constant>john</constant>
+            </predicate>
+        </and>
+    </exists>
+    <forall>
+        <variable>X</variable>
+        <implies>
+            <predicate name='man'>
+                <variable>X</variable>
+            </predicate>
+            <not>
+                <predicate name='woman'>
+                    <constant>x</constant>
+                </predicate>
+            </not>
+        </implies>
+    </forall>
+    <forall>
+        <variable>X</variable>
+        <implies>
+            <predicate name='surgeon'>
+                <variable>X</variable>
+            </predicate>
+            <predicate name='doctor'>
+                <variable>X</variable>
+            </predicate>
+        </implies>
+    </forall>
+    <forall>
+        <variable>X</variable>
+        <implies>
+            <predicate name='adult'>
+                <variable>X</variable>
+            </predicate>
+            <or>
+                <predicate name='man'>
+                    <variable>X</variable>
+                </predicate>
+                <predicate name='woman'>
+                    <variable>X</variable>
+                </predicate>
+            </or>
+        </implies>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </var-list>
+        <implies>
+            <predicate name='marriedTo'>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </predicate>
+            <predicate name='marriedTo'>
+                <variable>Y</variable>
+                <variable>X</variable>
+            </predicate>
+        </implies>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </var-list>
+        <implies>
+            <predicate name='parentOf'>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </predicate>
+            <predicate name='childOf'>
+                <variable>Y</variable>
+                <variable>X</variable>
+            </predicate>
+        </implies>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </var-list>
+        <implies>
+            <predicate name='marriedTo'>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </predicate>
+            <and>
+                <predicate name='person'>
+                    <variable>X</variable>
+                </predicate>
+                <predicate name='person'>
+                    <variable>Y</variable>
+                </predicate>
+            </and>
+        </implies>
+    </forall>
+    <forall>
+        <variable>X</variable>
+        <iff>
+            <predicate name='richMan'>
+                <variable>X</variable>
+            </predicate>
+            <and>
+                <predicate name='rich'>
+                    <variable>X</variable>
+                </predicate>
+                <predicate name='man'>
+                    <variable>X</variable>
+                </predicate>
+            </and>
+        </iff>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>B</variable>
+            <variable>C</variable>
+        </var-list>
+        <implied-by>
+            <and>
+                <predicate name='append'>
+                    <variable>A</variable>
+                    <variable>B</variable>
+                    <variable>C</variable>
+                </predicate>
+                <eq>
+                    <variable>C</variable>
+                    <variable>B</variable>
+                </eq>
+            </and>
+            <eq>
+                <variable>A</variable>
+                <nil/>
+            </eq>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>A</variable>
+            <variable>B</variable>
+            <variable>C</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='append'>
+                <cons>
+                    <variable>X</variable>
+                    <variable>A</variable>
+                </cons>
+                <variable>B</variable>
+                <cons>
+                    <variable>X</variable>
+                    <variable>C</variable>
+                </cons>
+            </predicate>
+            <predicate name='append'>
+                <variable>A</variable>
+                <variable>B</variable>
+                <variable>C</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>B</variable>
+            <variable>C</variable>
+        </var-list>
+        <implies>
+            <eq>
+                <variable>A</variable>
+                <nil/>
+            </eq>
+            <and>
+                <predicate name='append'>
+                    <variable>A</variable>
+                    <variable>B</variable>
+                    <variable>C</variable>
+                </predicate>
+                <eq>
+                    <variable>C</variable>
+                    <variable>B</variable>
+                </eq>
+            </and>
+        </implies>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>A</variable>
+            <variable>B</variable>
+            <variable>C</variable>
+        </var-list>
+        <implies>
+            <predicate name='append'>
+                <variable>A</variable>
+                <variable>B</variable>
+                <variable>C</variable>
+            </predicate>
+            <predicate name='append'>
+                <cons>
+                    <variable>X</variable>
+                    <variable>A</variable>
+                </cons>
+                <variable>B</variable>
+                <cons>
+                    <variable>X</variable>
+                    <variable>C</variable>
+                </cons>
+            </predicate>
+        </implies>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>P</variable>
+            <variable>X</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='parent'>
+                <variable>P</variable>
+                <variable>X</variable>
+            </predicate>
+            <predicate name='mother'>
+                <variable>P</variable>
+                <variable>X</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>P</variable>
+            <variable>X</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='parent'>
+                <variable>P</variable>
+                <variable>X</variable>
+            </predicate>
+            <predicate name='father'>
+                <variable>P</variable>
+                <variable>X</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>G</variable>
+            <variable>P</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='grandparent'>
+                <variable>G</variable>
+                <variable>X</variable>
+            </predicate>
+            <and>
+                <predicate name='parent'>
+                    <variable>G</variable>
+                    <variable>P</variable>
+                </predicate>
+                <predicate name='parent'>
+                    <variable>P</variable>
+                    <variable>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>B</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='ancestor'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+            <predicate name='parent'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>X</variable>
+            <variable>B</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='ancestor'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+            <and>
+                <predicate name='parent'>
+                    <variable>A</variable>
+                    <variable>X</variable>
+                </predicate>
+                <predicate name='ancestor'>
+                    <variable>X</variable>
+                    <variable>B</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>B</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='ancestor2'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+            <predicate name='parent'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>X</variable>
+            <variable>B</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='ancestor2'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+            <and>
+                <predicate name='parent'>
+                    <variable>X</variable>
+                    <variable>B</variable>
+                </predicate>
+                <predicate name='ancestor2'>
+                    <variable>A</variable>
+                    <variable>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>B</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='ancestor3'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+            <predicate name='parent'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>X</variable>
+            <variable>B</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='ancestor3'>
+                <variable>A</variable>
+                <variable>B</variable>
+            </predicate>
+            <and>
+                <predicate name='ancestor3'>
+                    <variable>A</variable>
+                    <variable>X</variable>
+                </predicate>
+                <predicate name='ancestor3'>
+                    <variable>X</variable>
+                    <variable>B</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <variable>N</variable>
+        <forall>
+            <variable>V</variable>
+            <implied-by>
+                <predicate name='fib'>
+                    <variable>N</variable>
+                    <variable>V</variable>
+                </predicate>
+                <and>
+                    <eq>
+                        <variable>N</variable>
+                        <integer>0</integer>
+                    </eq>
+                    <eq>
+                        <variable>V</variable>
+                        <integer>1</integer>
+                    </eq>
+                </and>
+            </implied-by>
+        </forall>
+    </forall>
+    <forall>
+        <variable>N</variable>
+        <forall>
+            <variable>V</variable>
+            <implied-by>
+                <predicate name='fib'>
+                    <variable>N</variable>
+                    <variable>V</variable>
+                </predicate>
+                <and>
+                    <eq>
+                        <variable>N</variable>
+                        <integer>1</integer>
+                    </eq>
+                    <eq>
+                        <variable>V</variable>
+                        <integer>1</integer>
+                    </eq>
+                </and>
+            </implied-by>
+        </forall>
+    </forall>
+    <forall>
+        <variable>N</variable>
+        <forall>
+            <variable>U</variable>
+            <forall>
+                <variable>V</variable>
+                <implied-by>
+                    <predicate name='fib'>
+                        <add>
+                            <variable>N</variable>
+                            <integer>2</integer>
+                        </add>
+                        <add>
+                            <variable>U</variable>
+                            <variable>V</variable>
+                        </add>
+                    </predicate>
+                    <and>
+                        <predicate name='fib'>
+                            <variable>N</variable>
+                            <variable>U</variable>
+                        </predicate>
+                        <predicate name='fib'>
+                            <add>
+                                <variable>N</variable>
+                                <integer>1</integer>
+                            </add>
+                            <variable>V</variable>
+                        </predicate>
+                    </and>
+                </implied-by>
+            </forall>
+        </forall>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>N</variable>
+            <variable>V</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='fib'>
+                <variable>N</variable>
+                <variable>V</variable>
+            </predicate>
+            <and>
+                <eq>
+                    <variable>N</variable>
+                    <integer>0</integer>
+                </eq>
+                <eq>
+                    <variable>V</variable>
+                    <integer>1</integer>
+                </eq>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>N</variable>
+            <variable>V</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='fib'>
+                <variable>N</variable>
+                <variable>V</variable>
+            </predicate>
+            <and>
+                <eq>
+                    <variable>N</variable>
+                    <integer>1</integer>
+                </eq>
+                <eq>
+                    <variable>V</variable>
+                    <integer>1</integer>
+                </eq>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>N</variable>
+            <variable>U</variable>
+            <variable>V</variable>
+            <variable>W</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='fib'>
+                <function name='s'>
+                    <function name='s'>
+                        <variable>N</variable>
+                    </function>
+                </function>
+                <variable>W</variable>
+            </predicate>
+            <and>
+                <and>
+                    <predicate name='fib'>
+                        <variable>N</variable>
+                        <variable>U</variable>
+                    </predicate>
+                    <predicate name='fib'>
+                        <function name='s'>
+                            <variable>N</variable>
+                        </function>
+                        <variable>V</variable>
+                    </predicate>
+                </and>
+                <predicate name='plus'>
+                    <variable>U</variable>
+                    <variable>V</variable>
+                    <variable>W</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>B</variable>
+            <variable>C</variable>
+        </var-list>
+        <implied-by>
+            <and>
+                <predicate name='plus'>
+                    <variable>A</variable>
+                    <variable>B</variable>
+                    <variable>C</variable>
+                </predicate>
+                <eq>
+                    <variable>C</variable>
+                    <variable>B</variable>
+                </eq>
+            </and>
+            <eq>
+                <variable>A</variable>
+                <integer>0</integer>
+            </eq>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>B</variable>
+            <variable>C</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='plus'>
+                <function name='s'>
+                    <variable>A</variable>
+                </function>
+                <variable>B</variable>
+                <variable>C</variable>
+            </predicate>
+            <predicate name='plus'>
+                <variable>A</variable>
+                <function name='s'>
+                    <variable>B</variable>
+                </function>
+                <variable>C</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall>
+        <variable>N</variable>
+        <predicate name='power'>
+            <integer>0</integer>
+            <variable>N</variable>
+            <integer>1</integer>
+        </predicate>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>N</variable>
+            <variable>V</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='power'>
+                <variable>A</variable>
+                <variable>N</variable>
+                <variable>V</variable>
+            </predicate>
+            <and>
+                <predicate name='even'>
+                    <variable>N</variable>
+                </predicate>
+                <predicate name='power'>
+                    <mul>
+                        <variable>A</variable>
+                        <variable>A</variable>
+                    </mul>
+                    <div>
+                        <variable>N</variable>
+                        <integer>2</integer>
+                    </div>
+                    <variable>V</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>A</variable>
+            <variable>N</variable>
+            <variable>V</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='power'>
+                <variable>A</variable>
+                <variable>N</variable>
+                <mul>
+                    <variable>A</variable>
+                    <variable>V</variable>
+                </mul>
+            </predicate>
+            <and>
+                <not>
+                    <predicate name='even'>
+                        <variable>N</variable>
+                    </predicate>
+                </not>
+                <predicate name='power'>
+                    <mul>
+                        <variable>A</variable>
+                        <variable>A</variable>
+                    </mul>
+                    <div>
+                        <sub>
+                            <variable>N</variable>
+                            <integer>1</integer>
+                        </sub>
+                        <integer>2</integer>
+                    </div>
+                    <variable>V</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>G</variable>
+            <variable>X</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='grandparent'>
+                <variable>G</variable>
+                <variable>X</variable>
+            </predicate>
+            <and>
+                <predicate name='parent'>
+                    <variable>G</variable>
+                    <variable>P</variable>
+                </predicate>
+                <predicate name='parent'>
+                    <variable>P</variable>
+                    <variable>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>Y</variable>
+            <variable>Z</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='cousin'>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </predicate>
+            <and>
+                <and>
+                    <and>
+                        <not>
+                            <eq>
+                                <variable>X</variable>
+                                <variable>Y</variable>
+                            </eq>
+                        </not>
+                        <not>
+                            <predicate name='sibling'>
+                                <variable>X</variable>
+                                <variable>Y</variable>
+                            </predicate>
+                        </not>
+                    </and>
+                    <predicate name='grandparent'>
+                        <variable>Z</variable>
+                        <variable>X</variable>
+                    </predicate>
+                </and>
+                <predicate name='grandparent'>
+                    <variable>Z</variable>
+                    <variable>Y</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <var-list>
+            <variable>X</variable>
+            <variable>Y</variable>
+        </var-list>
+        <implied-by>
+            <predicate name='americanCousin'>
+                <variable>X</variable>
+                <variable>Y</variable>
+            </predicate>
+            <and>
+                <predicate name='cousin'>
+                    <variable>X</variable>
+                    <variable>Y</variable>
+                </predicate>
+                <predicate name='american'>
+                    <variable>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall>
+        <variable>N</variable>
+        <implied-by>
+            <predicate name='composite'>
+                <variable>N</variable>
+            </predicate>
+            <and>
+                <gt>
+                    <variable>N</variable>
+                    <integer>1</integer>
+                </gt>
+                <not>
+                    <predicate name='prime'>
+                        <variable>N</variable>
+                    </predicate>
+                </not>
+            </and>
+        </implied-by>
+    </forall>
+</fol>

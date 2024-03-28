@@ -1,0 +1,645 @@
+<program>
+    <wme>
+        <type>person</type>
+        <attribute name='height'>
+            <integer>80</integer>
+        </attribute>
+        <attribute name='weight'>
+            <integer>80</integer>
+        </attribute>
+        <attribute name='age'>
+            <integer>40</integer>
+        </attribute>
+        <attribute name='income'>
+            <sub>
+                <mul>
+                    <integer>2</integer>
+                    <add>
+                        <integer>100</integer>
+                        <integer>20</integer>
+                    </add>
+                </mul>
+                <integer>5</integer>
+            </sub>
+        </attribute>
+    </wme>
+    <wme>
+        <type>phone</type>
+        <attribute name='itemCode'>
+            <constant>a15</constant>
+        </attribute>
+        <attribute name='brand'>
+            <constant>apple</constant>
+        </attribute>
+        <attribute name='color'>
+            <constant>silver</constant>
+        </attribute>
+        <attribute name='memory'>
+            <integer>64</integer>
+        </attribute>
+        <attribute name='cost'>
+            <integer>30</integer>
+        </attribute>
+        <attribute name='warranty'>
+            <integer>48</integer>
+        </attribute>
+        <attribute name='tax'>
+            <mul>
+                <float>0.05</float>
+                <integer>30</integer>
+            </mul>
+        </attribute>
+    </wme>
+    <wme>
+        <type>delivery</type>
+        <attribute name='item'>
+            <constant>a15</constant>
+        </attribute>
+        <attribute name='days'>
+            <integer>1</integer>
+        </attribute>
+    </wme>
+    <wme>
+        <type>stock</type>
+        <attribute name='item'>
+            <constant>a15</constant>
+        </attribute>
+        <attribute name='available'>
+            <integer>19</integer>
+        </attribute>
+        <attribute name='quantity'>
+            <integer>29</integer>
+        </attribute>
+        <attribute name='blocked'>
+            <integer>10</integer>
+        </attribute>
+    </wme>
+    <wme>
+        <type>loan</type>
+        <attribute name='item'>
+            <constant>a15</constant>
+        </attribute>
+        <attribute name='emi'>
+            <float>2.5</float>
+        </attribute>
+    </wme>
+    <wme>
+        <type>insurance</type>
+        <attribute name='provider'>
+            <constant>acme</constant>
+        </attribute>
+        <attribute name='item'>
+            <constant>a15</constant>
+        </attribute>
+        <attribute name='cost'>
+            <integer>10</integer>
+        </attribute>
+        <attribute name='limit'>
+            <integer>40</integer>
+        </attribute>
+    </wme>
+    <wme>
+        <type>insurance</type>
+        <attribute name='provider'>
+            <constant>star</constant>
+        </attribute>
+        <attribute name='item'>
+            <constant>a15</constant>
+        </attribute>
+        <attribute name='cost'>
+            <integer>60</integer>
+        </attribute>
+        <attribute name='limit'>
+            <integer>80</integer>
+        </attribute>
+        <attribute name='flood'>
+            <constant>covered</constant>
+        </attribute>
+        <attribute name='fire'>
+            <constant>covered</constant>
+        </attribute>
+    </wme>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>phone</type>
+                <attribute name='itemCode'>
+                    <variable>CODE</variable>
+                </attribute>
+                <attribute name='brand'>
+                    <constant>apple</constant>
+                </attribute>
+                <attribute name='color'>
+                    <test>
+                        <or>
+                            <eq>
+                                <attribute>color</attribute>
+                                <constant>red</constant>
+                            </eq>
+                            <eq>
+                                <attribute>color</attribute>
+                                <constant>blue</constant>
+                            </eq>
+                        </or>
+                    </test>
+                </attribute>
+                <attribute name='memory'>
+                    <test>
+                        <and>
+                            <ge>
+                                <attribute>memory</attribute>
+                                <integer>32</integer>
+                            </ge>
+                            <le>
+                                <attribute>memory</attribute>
+                                <integer>64</integer>
+                            </le>
+                        </and>
+                    </test>
+                </attribute>
+                <attribute name='cost'>
+                    <variable>MRP</variable>
+                    <test>
+                        <or>
+                            <lt>
+                                <attribute>cost</attribute>
+                                <integer>10</integer>
+                            </lt>
+                            <gt>
+                                <attribute>cost</attribute>
+                                <integer>20</integer>
+                            </gt>
+                        </or>
+                    </test>
+                </attribute>
+                <attribute name='warranty'>
+                    <defined/>
+                </attribute>
+                <attribute name='phoneCase'>
+                    <undefined/>
+                </attribute>
+                <attribute name='tax'>
+                    <variable>TAX</variable>
+                </attribute>
+            </wme-test>
+            <wme-test>
+                <type>delivery</type>
+                <attribute name='item'>
+                    <variable>CODE</variable>
+                </attribute>
+                <attribute name='days'>
+                    <test>
+                        <not>
+                            <gt>
+                                <attribute>days</attribute>
+                                <integer>5</integer>
+                            </gt>
+                        </not>
+                    </test>
+                </attribute>
+            </wme-test>
+            <wme-test>
+                <type>stock</type>
+                <attribute name='item'>
+                    <variable>CODE</variable>
+                </attribute>
+                <attribute name='available'>
+                    <test>
+                        <ge>
+                            <attribute>available</attribute>
+                            <integer>2</integer>
+                        </ge>
+                    </test>
+                </attribute>
+            </wme-test>
+            <wme-test>
+                <type>loan</type>
+                <attribute name='item'>
+                    <variable>CODE</variable>
+                </attribute>
+                <attribute name='emi'>
+                    <test>
+                        <lt>
+                            <attribute>emi</attribute>
+                            <div>
+                                <variable>MRP-TAX</variable>
+                                <integer>10</integer>
+                            </div>
+                        </lt>
+                    </test>
+                </attribute>
+            </wme-test>
+            <wme-test>
+                <type>insurance</type>
+                <attribute name='item'>
+                    <variable>CODE</variable>
+                </attribute>
+                <attribute name='cost'>
+                    <defined/>
+                </attribute>
+            </wme-test>
+            <not>
+                <wme-test>
+                    <type>insurance</type>
+                    <attribute name='item'>
+                        <variable>CODE</variable>
+                    </attribute>
+                    <attribute name='cost'>
+                        <test>
+                            <gt>
+                                <attribute>cost</attribute>
+                                <integer>100</integer>
+                            </gt>
+                        </test>
+                    </attribute>
+                </wme-test>
+            </not>
+        </conditions>
+        <actions>
+            <insert>
+                <wme-ctor>
+                    <type>cart</type>
+                    <attribute name='type'>
+                        <constant>phone</constant>
+                    </attribute>
+                    <attribute name='itemCode'>
+                        <variable>CODE</variable>
+                    </attribute>
+                    <attribute name='price'>
+                        <variable>MRP</variable>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <wme>
+        <type>counter</type>
+        <attribute name='value'>
+            <integer>1</integer>
+        </attribute>
+    </wme>
+    <wme>
+        <type>brick</type>
+        <attribute name='name'>
+            <constant>'A'</constant>
+        </attribute>
+        <attribute name='size'>
+            <integer>10</integer>
+        </attribute>
+        <attribute name='position'>
+            <constant>heap</constant>
+        </attribute>
+    </wme>
+    <wme>
+        <type>brick</type>
+        <attribute name='name'>
+            <constant>'B'</constant>
+        </attribute>
+        <attribute name='size'>
+            <integer>30</integer>
+        </attribute>
+        <attribute name='position'>
+            <constant>heap</constant>
+        </attribute>
+    </wme>
+    <wme>
+        <type>brick</type>
+        <attribute name='name'>
+            <constant>'C'</constant>
+        </attribute>
+        <attribute name='size'>
+            <integer>20</integer>
+        </attribute>
+        <attribute name='position'>
+            <constant>heap</constant>
+        </attribute>
+    </wme>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>brick</type>
+                <attribute name='position'>
+                    <constant>heap</constant>
+                </attribute>
+                <attribute name='name'>
+                    <variable>N</variable>
+                </attribute>
+                <attribute name='size'>
+                    <variable>S</variable>
+                </attribute>
+            </wme-test>
+            <not>
+                <wme-test>
+                    <type>brick</type>
+                    <attribute name='position'>
+                        <constant>heap</constant>
+                    </attribute>
+                    <attribute name='size'>
+                        <test>
+                            <gt>
+                                <attribute>size</attribute>
+                                <variable>S</variable>
+                            </gt>
+                        </test>
+                    </attribute>
+                </wme-test>
+            </not>
+            <not>
+                <wme-test>
+                    <type>brick</type>
+                    <attribute name='position'>
+                        <constant>hand</constant>
+                    </attribute>
+                </wme-test>
+            </not>
+        </conditions>
+        <actions>
+            <modify>
+                <integer>1</integer>
+                <attribute name='position'>
+                    <constant>hand</constant>
+                </attribute>
+            </modify>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>brick</type>
+                <attribute name='position'>
+                    <constant>hand</constant>
+                </attribute>
+                <attribute name='color'>
+                    <defined/>
+                </attribute>
+            </wme-test>
+            <wme-test>
+                <type>counter</type>
+                <attribute name='value'>
+                    <variable>I</variable>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <modify>
+                <integer>1</integer>
+                <attribute name='position'>
+                    <variable>I</variable>
+                </attribute>
+            </modify>
+            <modify>
+                <integer>2</integer>
+                <attribute name='value'>
+                    <add>
+                        <variable>I</variable>
+                        <integer>1</integer>
+                    </add>
+                </attribute>
+            </modify>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>wantDays</type>
+                <attribute name='year'>
+                    <variable>N</variable>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove>
+                <integer>1</integer>
+            </remove>
+            <insert>
+                <wme-ctor>
+                    <type>year</type>
+                    <attribute name='mod4'>
+                        <mod>
+                            <variable>N</variable>
+                            <integer>4</integer>
+                        </mod>
+                    </attribute>
+                    <attribute name='mod100'>
+                        <mod>
+                            <variable>N</variable>
+                            <integer>100</integer>
+                        </mod>
+                    </attribute>
+                    <attribute name='mod400'>
+                        <mod>
+                            <variable>N</variable>
+                            <integer>400</integer>
+                        </mod>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>year</type>
+                <attribute name='mod400'>
+                    <integer>0</integer>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove>
+                <integer>1</integer>
+            </remove>
+            <insert>
+                <wme-ctor>
+                    <type>hasDays</type>
+                    <attribute name='days'>
+                        <integer>366</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>year</type>
+                <attribute name='mod100'>
+                    <integer>0</integer>
+                </attribute>
+                <attribute name='mod400'>
+                    <test>
+                        <ne>
+                            <attribute>mod400</attribute>
+                            <integer>0</integer>
+                        </ne>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove>
+                <integer>1</integer>
+            </remove>
+            <insert>
+                <wme-ctor>
+                    <type>hasDays</type>
+                    <attribute name='days'>
+                        <integer>365</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>year</type>
+                <attribute name='mod4'>
+                    <integer>0</integer>
+                </attribute>
+                <attribute name='mod100'>
+                    <test>
+                        <ne>
+                            <attribute>mod100</attribute>
+                            <integer>0</integer>
+                        </ne>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove>
+                <integer>1</integer>
+            </remove>
+            <insert>
+                <wme-ctor>
+                    <type>hasDays</type>
+                    <attribute name='days'>
+                        <integer>366</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>year</type>
+                <attribute name='mod4'>
+                    <test>
+                        <ne>
+                            <attribute>mod4</attribute>
+                            <integer>0</integer>
+                        </ne>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove>
+                <integer>1</integer>
+            </remove>
+            <insert>
+                <wme-ctor>
+                    <type>hasDays</type>
+                    <attribute name='days'>
+                        <integer>365</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>bird</type>
+            </wme-test>
+        </conditions>
+        <actions>
+            <insert>
+                <wme-ctor>
+                    <type>canFly</type>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>bird</type>
+                <attribute name='weight'>
+                    <test>
+                        <gt>
+                            <attribute>weight</attribute>
+                            <integer>100</integer>
+                        </gt>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <insert>
+                <wme-ctor>
+                    <type>cannotFly</type>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>bird</type>
+            </wme-test>
+            <wme-test>
+                <type>penguin</type>
+            </wme-test>
+        </conditions>
+        <actions>
+            <insert>
+                <wme-ctor>
+                    <type>cannotFly</type>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule>
+        <conditions>
+            <wme-test>
+                <type>goal</type>
+                <attribute name='is'>
+                    <constant>getUnitDigit</constant>
+                </attribute>
+            </wme-test>
+            <wme-test>
+                <type>minuend</type>
+                <attribute name='unit'>
+                    <variable>D</variable>
+                </attribute>
+            </wme-test>
+            <wme-test>
+                <type>subtrahend</type>
+                <attribute name='unit'>
+                    <test>
+                        <gt>
+                            <attribute>unit</attribute>
+                            <variable>D</variable>
+                        </gt>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove>
+                <integer>1</integer>
+            </remove>
+            <insert>
+                <wme-ctor>
+                    <type>goal</type>
+                    <attribute name='is'>
+                        <constant>borrowFromTens</constant>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+</program>

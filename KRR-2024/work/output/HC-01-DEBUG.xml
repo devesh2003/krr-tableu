@@ -1,0 +1,567 @@
+<program>
+    <fact>
+        <predicate name='hasBrother' pos='5:0'>
+            <constant pos='5:11'>lucy</constant>
+            <constant pos='5:16'>jack</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='hasSister' pos='6:0'>
+            <constant pos='6:10'>jack</constant>
+            <constant pos='6:15'>lucy</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='hasSibling' pos='7:0'>
+            <constant pos='7:11'>lucy</constant>
+            <constant pos='7:16'>jack</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='hasSibling' pos='8:0'>
+            <constant pos='8:11'>jack</constant>
+            <constant pos='8:16'>lucy</constant>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='append' pos='16:0'>
+            <nil pos='16:7'/>
+            <variable pos='16:11'>B</variable>
+            <variable pos='16:14'>B</variable>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='append' pos='17:0'>
+            <cons text='|' pos='17:9'>
+                <variable pos='17:8'>X</variable>
+                <variable pos='17:10'>A</variable>
+            </cons>
+            <variable pos='17:14'>B</variable>
+            <cons text='|' pos='17:19'>
+                <variable pos='17:18'>X</variable>
+                <variable pos='17:20'>C</variable>
+            </cons>
+        </predicate>
+        <predicate name='append' pos='17:27'>
+            <variable pos='17:34'>A</variable>
+            <variable pos='17:37'>B</variable>
+            <variable pos='17:40'>C</variable>
+        </predicate>
+    </rule>
+    <query>
+        <predicate name='append' pos='19:0'>
+            <cons text=',' pos='19:9'>
+                <integer pos='19:8'>1</integer>
+                <cons text=']' pos='19:11'>
+                    <integer pos='19:10'>2</integer>
+                    <nil pos='19:11'/>
+                </cons>
+            </cons>
+            <cons text=',' pos='19:15'>
+                <integer pos='19:14'>3</integer>
+                <cons text=']' pos='19:17'>
+                    <integer pos='19:16'>4</integer>
+                    <nil pos='19:17'/>
+                </cons>
+            </cons>
+            <variable pos='19:19'>C</variable>
+        </predicate>
+        <predicate name='length' pos='19:23'>
+            <variable pos='19:30'>C</variable>
+            <integer pos='19:32'>4</integer>
+        </predicate>
+    </query>
+    <query>
+        <predicate name='append' pos='20:0'>
+            <cons text='|' pos='20:9'>
+                <integer pos='20:8'>1</integer>
+                <cons text='|' pos='20:12'>
+                    <integer pos='20:11'>2</integer>
+                    <nil pos='20:13'/>
+                </cons>
+            </cons>
+            <cons text='|' pos='20:20'>
+                <integer pos='20:19'>3</integer>
+                <cons text='|' pos='20:23'>
+                    <integer pos='20:22'>4</integer>
+                    <nil pos='20:24'/>
+                </cons>
+            </cons>
+            <variable pos='20:29'>C</variable>
+        </predicate>
+        <predicate name='length' pos='20:33'>
+            <variable pos='20:40'>C</variable>
+            <integer pos='20:42'>4</integer>
+        </predicate>
+    </query>
+    <query>
+        <predicate name='append' pos='21:0'>
+            <cons text=',' pos='21:13'>
+                <cons text=',' pos='21:10'>
+                    <integer pos='21:9'>1</integer>
+                    <cons text=']' pos='21:12'>
+                        <integer pos='21:11'>2</integer>
+                        <nil pos='21:12'/>
+                    </cons>
+                </cons>
+                <cons text=']' pos='21:19'>
+                    <cons text=',' pos='21:16'>
+                        <integer pos='21:15'>3</integer>
+                        <cons text=']' pos='21:18'>
+                            <integer pos='21:17'>4</integer>
+                            <nil pos='21:18'/>
+                        </cons>
+                    </cons>
+                    <nil pos='21:19'/>
+                </cons>
+            </cons>
+            <cons text=',' pos='21:27'>
+                <cons text=',' pos='21:24'>
+                    <integer pos='21:23'>5</integer>
+                    <cons text=']' pos='21:26'>
+                        <integer pos='21:25'>6</integer>
+                        <nil pos='21:26'/>
+                    </cons>
+                </cons>
+                <cons text=',' pos='21:33'>
+                    <cons text=',' pos='21:30'>
+                        <integer pos='21:29'>7</integer>
+                        <cons text=']' pos='21:32'>
+                            <integer pos='21:31'>8</integer>
+                            <nil pos='21:32'/>
+                        </cons>
+                    </cons>
+                    <cons text=']' pos='21:37'>
+                        <cons text=']' pos='21:36'>
+                            <integer pos='21:35'>9</integer>
+                            <nil pos='21:36'/>
+                        </cons>
+                        <nil pos='21:37'/>
+                    </cons>
+                </cons>
+            </cons>
+            <variable pos='21:39'>C</variable>
+        </predicate>
+        <predicate name='length' pos='21:43'>
+            <variable pos='21:50'>C</variable>
+            <integer pos='21:52'>4</integer>
+        </predicate>
+    </query>
+    <query>
+        <cut pos='22:0'/>
+        <predicate name='append' pos='22:3'>
+            <cons text=',' pos='22:12'>
+                <integer pos='22:11'>1</integer>
+                <cons text=']' pos='22:14'>
+                    <integer pos='22:13'>2</integer>
+                    <nil pos='22:14'/>
+                </cons>
+            </cons>
+            <cons text=',' pos='22:18'>
+                <integer pos='22:17'>3</integer>
+                <cons text=']' pos='22:20'>
+                    <integer pos='22:19'>4</integer>
+                    <nil pos='22:20'/>
+                </cons>
+            </cons>
+            <variable pos='22:22'>Z</variable>
+        </predicate>
+        <not text='\+' pos='22:26'>
+            <predicate name='length' pos='22:29'>
+                <variable pos='22:36'>C</variable>
+                <integer pos='22:38'>5</integer>
+            </predicate>
+        </not>
+    </query>
+    <query>
+        <predicate name='append' pos='23:0'>
+            <variable pos='23:7'>X</variable>
+            <variable pos='23:9'>Y</variable>
+            <cons text=',' pos='23:13'>
+                <integer pos='23:12'>1</integer>
+                <cons text=',' pos='23:15'>
+                    <integer pos='23:14'>2</integer>
+                    <cons text='|' pos='23:17'>
+                        <integer pos='23:16'>3</integer>
+                        <cons text='|' pos='23:20'>
+                            <integer pos='23:19'>4</integer>
+                            <cons text='|' pos='23:23'>
+                                <integer pos='23:22'>5</integer>
+                                <nil pos='23:24'/>
+                            </cons>
+                        </cons>
+                    </cons>
+                </cons>
+            </cons>
+        </predicate>
+    </query>
+    <rule>
+        <predicate name='parent' pos='37:0'>
+            <variable pos='37:7'>P</variable>
+            <variable pos='37:9'>X</variable>
+        </predicate>
+        <predicate name='mother' pos='37:15'>
+            <variable pos='37:22'>P</variable>
+            <variable pos='37:24'>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='parent' pos='38:0'>
+            <variable pos='38:7'>P</variable>
+            <variable pos='38:9'>X</variable>
+        </predicate>
+        <predicate name='father' pos='38:15'>
+            <variable pos='38:22'>P</variable>
+            <variable pos='38:24'>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='grandparent' pos='40:0'>
+            <variable pos='40:12'>G</variable>
+            <variable pos='40:14'>X</variable>
+        </predicate>
+        <predicate name='parent' pos='40:20'>
+            <variable pos='40:27'>G</variable>
+            <variable pos='40:29'>P</variable>
+        </predicate>
+        <predicate name='parent' pos='40:33'>
+            <variable pos='40:40'>P</variable>
+            <variable pos='40:42'>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor' pos='42:0'>
+            <variable pos='42:9'>A</variable>
+            <variable pos='42:11'>B</variable>
+        </predicate>
+        <predicate name='parent' pos='42:17'>
+            <variable pos='42:24'>A</variable>
+            <variable pos='42:26'>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor' pos='43:0'>
+            <variable pos='43:9'>A</variable>
+            <variable pos='43:11'>B</variable>
+        </predicate>
+        <predicate name='parent' pos='43:17'>
+            <variable pos='43:24'>A</variable>
+            <variable pos='43:26'>X</variable>
+        </predicate>
+        <predicate name='ancestor' pos='43:30'>
+            <variable pos='43:39'>X</variable>
+            <variable pos='43:41'>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor2' pos='46:0'>
+            <variable pos='46:10'>A</variable>
+            <variable pos='46:12'>B</variable>
+        </predicate>
+        <predicate name='parent' pos='46:18'>
+            <variable pos='46:25'>A</variable>
+            <variable pos='46:27'>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor2' pos='47:0'>
+            <variable pos='47:10'>A</variable>
+            <variable pos='47:12'>B</variable>
+        </predicate>
+        <predicate name='parent' pos='47:18'>
+            <variable pos='47:25'>X</variable>
+            <variable pos='47:27'>B</variable>
+        </predicate>
+        <predicate name='ancestor2' pos='47:31'>
+            <variable pos='47:41'>A</variable>
+            <variable pos='47:43'>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor3' pos='50:0'>
+            <variable pos='50:10'>A</variable>
+            <variable pos='50:12'>B</variable>
+        </predicate>
+        <predicate name='parent' pos='50:18'>
+            <variable pos='50:25'>A</variable>
+            <variable pos='50:27'>B</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='ancestor3' pos='51:0'>
+            <variable pos='51:10'>A</variable>
+            <variable pos='51:12'>B</variable>
+        </predicate>
+        <predicate name='ancestor3' pos='51:18'>
+            <variable pos='51:28'>A</variable>
+            <variable pos='51:30'>X</variable>
+        </predicate>
+        <predicate name='ancestor3' pos='51:34'>
+            <variable pos='51:44'>X</variable>
+            <variable pos='51:46'>B</variable>
+        </predicate>
+    </rule>
+    <fact>
+        <predicate name='fib' pos='60:0'>
+            <integer pos='60:4'>0</integer>
+            <integer pos='60:6'>1</integer>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='fib' pos='61:0'>
+            <integer pos='61:4'>1</integer>
+            <integer pos='61:6'>1</integer>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='fib' pos='62:0'>
+            <add text='+' pos='62:5'>
+                <variable pos='62:4'>N</variable>
+                <integer pos='62:6'>2</integer>
+            </add>
+            <variable pos='62:8'>W</variable>
+        </predicate>
+        <predicate name='fib' pos='62:14'>
+            <variable pos='62:18'>N</variable>
+            <variable pos='62:20'>U</variable>
+        </predicate>
+        <predicate name='fib' pos='62:24'>
+            <add text='+' pos='62:29'>
+                <variable pos='62:28'>N</variable>
+                <integer pos='62:30'>1</integer>
+            </add>
+            <variable pos='62:32'>V</variable>
+        </predicate>
+        <unifies text='=' pos='62:42'>
+            <add text='+' pos='62:38'>
+                <variable pos='62:36'>U</variable>
+                <variable pos='62:40'>V</variable>
+            </add>
+            <variable pos='62:44'>W</variable>
+        </unifies>
+    </rule>
+    <fact>
+        <predicate name='fib' pos='68:0'>
+            <integer pos='68:4'>0</integer>
+            <integer pos='68:6'>1</integer>
+        </predicate>
+    </fact>
+    <fact>
+        <predicate name='fib' pos='69:0'>
+            <integer pos='69:4'>1</integer>
+            <integer pos='69:6'>1</integer>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='fib' pos='70:0'>
+            <function name='s' pos='70:4'>
+                <function name='s' pos='70:6'>
+                    <variable pos='70:8'>N</variable>
+                </function>
+            </function>
+            <variable pos='70:12'>V</variable>
+        </predicate>
+        <predicate name='fib' pos='70:18'>
+            <variable pos='70:22'>N</variable>
+            <variable pos='70:24'>V1</variable>
+        </predicate>
+        <predicate name='fib' pos='70:29'>
+            <function name='s' pos='70:33'>
+                <variable pos='70:35'>N</variable>
+            </function>
+            <variable pos='70:38'>V2</variable>
+        </predicate>
+        <predicate name='plus' pos='70:43'>
+            <variable pos='70:48'>V1</variable>
+            <variable pos='70:51'>V2</variable>
+            <variable pos='70:54'>V</variable>
+        </predicate>
+    </rule>
+    <fact>
+        <predicate name='plus' pos='77:0'>
+            <integer pos='77:5'>0</integer>
+            <variable pos='77:7'>C</variable>
+            <variable pos='77:9'>C</variable>
+        </predicate>
+    </fact>
+    <rule>
+        <predicate name='plus' pos='78:0'>
+            <function name='s' pos='78:5'>
+                <variable pos='78:7'>A</variable>
+            </function>
+            <variable pos='78:10'>B</variable>
+            <variable pos='78:12'>C</variable>
+        </predicate>
+        <predicate name='plus' pos='78:18'>
+            <variable pos='78:23'>A</variable>
+            <function name='s' pos='78:25'>
+                <variable pos='78:27'>B</variable>
+            </function>
+            <variable pos='78:30'>C</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='power' pos='88:0'>
+            <variable pos='88:6'>A</variable>
+            <integer pos='88:8'>0</integer>
+            <variable pos='88:10'>V</variable>
+        </predicate>
+        <cut pos='88:16'/>
+        <unifies text='=' pos='88:20'>
+            <variable pos='88:19'>V</variable>
+            <integer pos='88:21'>1</integer>
+        </unifies>
+    </rule>
+    <rule>
+        <predicate name='power' pos='90:0'>
+            <variable pos='90:6'>A</variable>
+            <variable pos='90:8'>N</variable>
+            <variable pos='90:10'>V</variable>
+        </predicate>
+        <predicate name='even' pos='90:16'>
+            <variable pos='90:21'>N</variable>
+        </predicate>
+        <cut pos='90:25'/>
+        <predicate name='multiply' pos='91:16'>
+            <variable pos='91:25'>A</variable>
+            <variable pos='91:27'>A</variable>
+            <variable pos='91:29'>B</variable>
+        </predicate>
+        <predicate name='multiply' pos='92:16'>
+            <variable pos='92:25'>M</variable>
+            <integer pos='92:27'>2</integer>
+            <variable pos='92:29'>N</variable>
+        </predicate>
+        <predicate name='power' pos='93:16'>
+            <variable pos='93:22'>B</variable>
+            <variable pos='93:24'>M</variable>
+            <variable pos='93:26'>V</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='power' pos='95:0'>
+            <variable pos='95:6'>A</variable>
+            <variable pos='95:8'>N</variable>
+            <variable pos='95:10'>V</variable>
+        </predicate>
+        <predicate name='multiply' pos='95:16'>
+            <variable pos='95:25'>A</variable>
+            <variable pos='95:27'>A</variable>
+            <variable pos='95:29'>B</variable>
+        </predicate>
+        <predicate name='plus' pos='96:16'>
+            <variable pos='96:21'>N1</variable>
+            <integer pos='96:24'>1</integer>
+            <variable pos='96:26'>N</variable>
+        </predicate>
+        <predicate name='multiple' pos='97:16'>
+            <variable pos='97:25'>M</variable>
+            <integer pos='97:27'>2</integer>
+            <variable pos='97:29'>N1</variable>
+        </predicate>
+        <predicate name='power' pos='98:16'>
+            <variable pos='98:22'>B</variable>
+            <variable pos='98:24'>M</variable>
+            <variable pos='98:26'>V2</variable>
+        </predicate>
+        <predicate name='multiply' pos='99:16'>
+            <variable pos='99:25'>V2</variable>
+            <variable pos='99:28'>A</variable>
+            <variable pos='99:30'>V</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='grandparent' pos='105:0'>
+            <variable pos='105:12'>G</variable>
+            <variable pos='105:14'>X</variable>
+        </predicate>
+        <predicate name='parent' pos='105:20'>
+            <variable pos='105:27'>G</variable>
+            <variable pos='105:29'>P</variable>
+        </predicate>
+        <predicate name='parent' pos='105:33'>
+            <variable pos='105:40'>P</variable>
+            <variable pos='105:42'>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='cousin' pos='107:0'>
+            <variable pos='107:7'>X</variable>
+            <variable pos='107:9'>Y</variable>
+        </predicate>
+        <notunifies text='\=' pos='107:22'>
+            <variable pos='107:20'>X</variable>
+            <variable pos='107:25'>Y</variable>
+        </notunifies>
+        <not pos='108:20'>
+            <predicate name='sibling' pos='108:24'>
+                <variable pos='108:32'>X</variable>
+                <variable pos='108:34'>Y</variable>
+            </predicate>
+        </not>
+        <predicate name='grandparent' pos='109:20'>
+            <variable pos='109:32'>Z</variable>
+            <variable pos='109:34'>X</variable>
+        </predicate>
+        <predicate name='grandparent' pos='110:20'>
+            <variable pos='110:32'>Z</variable>
+            <variable pos='110:34'>Y</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='americanCousin' pos='112:0'>
+            <variable pos='112:15'>X</variable>
+            <variable pos='112:17'>Y</variable>
+        </predicate>
+        <predicate name='cousin' pos='112:23'>
+            <variable pos='112:30'>X</variable>
+            <variable pos='112:32'>Y</variable>
+        </predicate>
+        <cut pos='112:36'/>
+        <predicate name='american' pos='112:39'>
+            <variable pos='112:48'>X</variable>
+        </predicate>
+    </rule>
+    <rule>
+        <predicate name='composite' pos='118:0'>
+            <variable pos='118:10'>N</variable>
+        </predicate>
+        <gt text='&gt;' pos='118:18'>
+            <variable pos='118:16'>N</variable>
+            <integer pos='118:20'>1</integer>
+        </gt>
+        <not text='~' pos='118:23'>
+            <predicate name='prime' pos='118:25'>
+                <variable pos='118:31'>N</variable>
+            </predicate>
+        </not>
+    </rule>
+    <rule>
+        <predicate name='composite' pos='119:0'>
+            <variable pos='119:10'>N</variable>
+        </predicate>
+        <gt text='&gt;' pos='119:18'>
+            <variable pos='119:16'>N</variable>
+            <integer pos='119:20'>1</integer>
+        </gt>
+        <not text='\+' pos='119:23'>
+            <predicate name='prime' pos='119:26'>
+                <variable pos='119:32'>N</variable>
+            </predicate>
+        </not>
+    </rule>
+    <rule>
+        <predicate name='composite' pos='120:0'>
+            <variable pos='120:10'>N</variable>
+        </predicate>
+        <gt text='&gt;' pos='120:18'>
+            <variable pos='120:16'>N</variable>
+            <integer pos='120:20'>1</integer>
+        </gt>
+        <not pos='120:23'>
+            <predicate name='prime' pos='120:28'>
+                <variable pos='120:34'>N</variable>
+            </predicate>
+        </not>
+    </rule>
+</program>

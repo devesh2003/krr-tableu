@@ -1,0 +1,56 @@
+#---------------------------------------------------------------------
+# KEYWORDS and OPERATORS
+#---------------------------------------------------------------------
+# true false ~ not and or => <= <=>
+# ⊤  ⊥  ~  ¬  ￢  ∧  ∨  ⊃  ⊂  ≡
+#---------------------------------------------------------------------
+#   ⊤   true
+#   ⊥   false
+#   ~   not
+#   ¬   not
+#   ￢  not
+#   ∧   and
+#   ∨   or
+#   ⊃   =>
+#   ⊂   <=
+#   ≡   <=>
+#---------------------------------------------------------------------
+
+{
+    [ p ∧ (p ⊃ q) ] ⊃ q ;                             #  Modus Ponens
+    [ (p ⊃ q) ∧ ¬q ] ⊃ ¬p ;                           #  Modus Tollens
+    [ (p ⊃ q) ∧ (q ⊃ r) ] ⊃ (p ⊃ r) ;                 #  Hypothetical Syllogism
+    [ (p ∨ q) ∧ ¬p ] ⊃ q ;                            #  Disjunctive Syllogism
+    [ (p ⊃ q) ∧ (r ⊃ s) ∧ (p ∨ r) ] ⊃ (q ∨ s) ;       #  Constructive Dilemma
+    [ (p ⊃ q) ∧ (r ⊃ s) ∧ (¬q ∨ ¬s) ] ⊃ (¬p ∨ ¬r) ;   #  Destructive Dilemma
+    [ (p ⊃ q) ∧ (r ⊃ s) ∧ (p ∨ ¬s) ] ⊃ (q ∨ ¬r) ;     #  Bidirectional Dilemma
+    (p ∧ q) ⊃ p ;                                     #  Simplification
+    p ⊃ (p ∨ q) ;                                     #  Addition
+    [ (p ⊃ q) ∧ (p ⊃ r) ] ⊃ [ p ⊃ (q ∧ r) ] ;         #  Composition
+}
+
+{
+    [ ¬(p ∧ q) ] ≡ [ ¬p ∨ ¬q ] ;                      #  De Morgan's Theorem (1)
+    [ ¬(p ∨ q) ] ≡ [ ¬p ∧ ¬q ] ;                      #  De Morgan's Theorem (2)
+    [ p ∨ q ] ≡ [ q ∨ p ] ;                           #  Commutation (1)
+    [ p ∧ q ] ≡ [ q ∧ p ] ;                           #  Commutation (2)
+    [ p ≡ q ] ≡ [ q ≡ p ] ;                           #  Commutation (3)
+    [ p ∨ (q ∨ r) ] ≡ [ (p ∨ q) ∨ r ] ;               #  Association (1)
+    [ p ∧ (q ∧ r) ] ≡ [ (p ∧ q) ∧ r ] ;               #  Association (2)
+    [ p ∧ (q ∨ r) ] ≡ [ (p ∧ q) ∨ (p ∧ r) ] ;         #  Distribution (1)
+    [ p ∨ (q ∧ r) ] ≡ [ (p ∨ q) ∧ (p ∨ r) ] ;         #  Distribution (2)
+    [ p ] ≡ [ ¬¬p ] ;                                 #  Double Negation
+    [ p ⊃ q ] ≡ [ ¬q ⊃ ¬p ] ;                         #  Transposition
+    [ p ⊃ q ] ≡ [ ¬p ∨ q ] ;                          #  Material Implication
+    [ p ≡ q ] ≡ [ (p ⊃ q) ∧ (q ⊃ p) ] ;               #  Material Equivalence (1)
+    [ p ≡ q ] ≡ [ (p ∧ q) ∨ (¬ p ∧ ¬ q) ] ;           #  Material Equivalence (2)
+    [ p ≡ q ] ≡ [ (p ∨ ¬ q) ∧ (¬ p ∨ q) ] ;           #  Material Equivalence (3)
+}
+
+[ (p ∧ q) ⊃ r ] ⊃ [ p ⊃ (q ⊃ r) ] ;               #  Exportation[13]
+[ p ⊃ (q ⊃ r) ] ⊃ [ (p ∧ q) ⊃ r ] ;               #  Importation
+
+[ p ] ≡ [ p ∨ p ] ;                               #  Tautology (1)
+[ p ] ≡ [ p ∧ p ] ;                               #  Tautology (2)
+[ p ∨ ¬p ] ≡ true ;                               #  Law of Excluded Middle
+[ ¬(p ∧ ¬p) ] ≡ true ;                            #  Law of Non-Contradiction

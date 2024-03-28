@@ -1,0 +1,645 @@
+<program>
+    <wme text='(' pos='5:0'>
+        <type pos='5:1'>person</type>
+        <attribute name='height' pos='5:8'>
+            <integer pos='5:15'>80</integer>
+        </attribute>
+        <attribute name='weight' pos='5:18'>
+            <integer pos='5:25'>80</integer>
+        </attribute>
+        <attribute name='age' pos='5:28'>
+            <integer pos='5:32'>40</integer>
+        </attribute>
+        <attribute name='income' pos='5:35'>
+            <sub text='-' pos='5:53'>
+                <mul text='*' pos='5:44'>
+                    <integer pos='5:43'>2</integer>
+                    <add text='+' pos='5:49'>
+                        <integer pos='5:46'>100</integer>
+                        <integer pos='5:50'>20</integer>
+                    </add>
+                </mul>
+                <integer pos='5:54'>5</integer>
+            </sub>
+        </attribute>
+    </wme>
+    <wme text='(' pos='6:0'>
+        <type pos='6:1'>phone</type>
+        <attribute name='itemCode' pos='6:7'>
+            <constant pos='6:16'>a15</constant>
+        </attribute>
+        <attribute name='brand' pos='6:20'>
+            <constant pos='6:26'>apple</constant>
+        </attribute>
+        <attribute name='color' pos='6:32'>
+            <constant pos='6:38'>silver</constant>
+        </attribute>
+        <attribute name='memory' pos='6:45'>
+            <integer pos='6:52'>64</integer>
+        </attribute>
+        <attribute name='cost' pos='6:55'>
+            <integer pos='6:60'>30</integer>
+        </attribute>
+        <attribute name='warranty' pos='6:63'>
+            <integer pos='6:72'>48</integer>
+        </attribute>
+        <attribute name='tax' pos='6:75'>
+            <mul text='*' pos='6:84'>
+                <float pos='6:80'>0.05</float>
+                <integer pos='6:85'>30</integer>
+            </mul>
+        </attribute>
+    </wme>
+    <wme text='(' pos='7:0'>
+        <type pos='7:1'>delivery</type>
+        <attribute name='item' pos='7:10'>
+            <constant pos='7:15'>a15</constant>
+        </attribute>
+        <attribute name='days' pos='7:19'>
+            <integer pos='7:24'>1</integer>
+        </attribute>
+    </wme>
+    <wme text='(' pos='8:0'>
+        <type pos='8:1'>stock</type>
+        <attribute name='item' pos='8:7'>
+            <constant pos='8:12'>a15</constant>
+        </attribute>
+        <attribute name='available' pos='8:16'>
+            <integer pos='8:26'>19</integer>
+        </attribute>
+        <attribute name='quantity' pos='8:29'>
+            <integer pos='8:38'>29</integer>
+        </attribute>
+        <attribute name='blocked' pos='8:41'>
+            <integer pos='8:49'>10</integer>
+        </attribute>
+    </wme>
+    <wme text='(' pos='9:0'>
+        <type pos='9:1'>loan</type>
+        <attribute name='item' pos='9:6'>
+            <constant pos='9:11'>a15</constant>
+        </attribute>
+        <attribute name='emi' pos='9:15'>
+            <float pos='9:19'>2.5</float>
+        </attribute>
+    </wme>
+    <wme text='(' pos='10:0'>
+        <type pos='10:1'>insurance</type>
+        <attribute name='provider' pos='10:11'>
+            <constant pos='10:20'>acme</constant>
+        </attribute>
+        <attribute name='item' pos='10:25'>
+            <constant pos='10:30'>a15</constant>
+        </attribute>
+        <attribute name='cost' pos='10:34'>
+            <integer pos='10:39'>10</integer>
+        </attribute>
+        <attribute name='limit' pos='10:42'>
+            <integer pos='10:48'>40</integer>
+        </attribute>
+    </wme>
+    <wme text='(' pos='11:0'>
+        <type pos='11:1'>insurance</type>
+        <attribute name='provider' pos='11:11'>
+            <constant pos='11:20'>star</constant>
+        </attribute>
+        <attribute name='item' pos='11:25'>
+            <constant pos='11:30'>a15</constant>
+        </attribute>
+        <attribute name='cost' pos='11:34'>
+            <integer pos='11:39'>60</integer>
+        </attribute>
+        <attribute name='limit' pos='11:42'>
+            <integer pos='11:48'>80</integer>
+        </attribute>
+        <attribute name='flood' pos='11:51'>
+            <constant pos='11:57'>covered</constant>
+        </attribute>
+        <attribute name='fire' pos='11:65'>
+            <constant pos='11:70'>covered</constant>
+        </attribute>
+    </wme>
+    <rule text='IF' pos='13:0'>
+        <conditions>
+            <wme-test text='(' pos='13:4'>
+                <type pos='13:5'>phone</type>
+                <attribute name='itemCode' pos='13:12'>
+                    <variable pos='13:23'>CODE</variable>
+                </attribute>
+                <attribute name='brand' pos='14:12'>
+                    <constant pos='14:23'>apple</constant>
+                </attribute>
+                <attribute name='color' pos='15:12'>
+                    <test text='{' pos='15:23'>
+                        <or text='∨' pos='15:29'>
+                            <eq text='=' pos='15:24'>
+                                <attribute pos='15:12'>color</attribute>
+                                <constant pos='15:25'>red</constant>
+                            </eq>
+                            <eq text='=' pos='15:31'>
+                                <attribute pos='15:12'>color</attribute>
+                                <constant pos='15:32'>blue</constant>
+                            </eq>
+                        </or>
+                    </test>
+                </attribute>
+                <attribute name='memory' pos='16:12'>
+                    <test text='{' pos='16:23'>
+                        <and text='∧' pos='16:30'>
+                            <ge text='&gt;=' pos='16:24'>
+                                <attribute pos='16:12'>memory</attribute>
+                                <integer pos='16:27'>32</integer>
+                            </ge>
+                            <le text='=&lt;' pos='16:32'>
+                                <attribute pos='16:12'>memory</attribute>
+                                <integer pos='16:35'>64</integer>
+                            </le>
+                        </and>
+                    </test>
+                </attribute>
+                <attribute name='cost' pos='17:12'>
+                    <variable pos='17:23'>MRP</variable>
+                    <test text='{' pos='17:27'>
+                        <or text='∨' pos='17:33'>
+                            <lt text='&lt;' pos='17:28'>
+                                <attribute pos='17:12'>cost</attribute>
+                                <integer pos='17:30'>10</integer>
+                            </lt>
+                            <gt text='&gt;' pos='17:35'>
+                                <attribute pos='17:12'>cost</attribute>
+                                <integer pos='17:37'>20</integer>
+                            </gt>
+                        </or>
+                    </test>
+                </attribute>
+                <attribute name='warranty' pos='18:12'>
+                    <defined pos='18:23'/>
+                </attribute>
+                <attribute name='phoneCase' pos='19:12'>
+                    <undefined pos='19:23'/>
+                </attribute>
+                <attribute name='tax' pos='20:12'>
+                    <variable pos='20:23'>TAX</variable>
+                </attribute>
+            </wme-test>
+            <wme-test text='(' pos='22:4'>
+                <type pos='22:5'>delivery</type>
+                <attribute name='item' pos='22:15'>
+                    <variable pos='22:20'>CODE</variable>
+                </attribute>
+                <attribute name='days' pos='22:26'>
+                    <test text='{' pos='22:31'>
+                        <not text='￢' pos='22:32'>
+                            <gt text='&gt;' pos='22:34'>
+                                <attribute pos='22:26'>days</attribute>
+                                <integer pos='22:36'>5</integer>
+                            </gt>
+                        </not>
+                    </test>
+                </attribute>
+            </wme-test>
+            <wme-test text='(' pos='23:4'>
+                <type pos='23:5'>stock</type>
+                <attribute name='item' pos='23:12'>
+                    <variable pos='23:17'>CODE</variable>
+                </attribute>
+                <attribute name='available' pos='23:23'>
+                    <test text='{' pos='23:33'>
+                        <ge text='&gt;=' pos='23:34'>
+                            <attribute pos='23:23'>available</attribute>
+                            <integer pos='23:37'>2</integer>
+                        </ge>
+                    </test>
+                </attribute>
+            </wme-test>
+            <wme-test text='(' pos='24:4'>
+                <type pos='24:5'>loan</type>
+                <attribute name='item' pos='24:12'>
+                    <variable pos='24:17'>CODE</variable>
+                </attribute>
+                <attribute name='emi' pos='24:23'>
+                    <test text='{' pos='24:27'>
+                        <lt text='&lt;' pos='24:28'>
+                            <attribute pos='24:23'>emi</attribute>
+                            <div text='/' pos='24:40'>
+                                <variable pos='24:32'>MRP-TAX</variable>
+                                <integer pos='24:41'>10</integer>
+                            </div>
+                        </lt>
+                    </test>
+                </attribute>
+            </wme-test>
+            <wme-test text='(' pos='25:4'>
+                <type pos='25:5'>insurance</type>
+                <attribute name='item' pos='25:16'>
+                    <variable pos='25:21'>CODE</variable>
+                </attribute>
+                <attribute name='cost' pos='25:27'>
+                    <defined pos='25:32'/>
+                </attribute>
+            </wme-test>
+            <not text='-' pos='26:3'>
+                <wme-test text='(' pos='26:4'>
+                    <type pos='26:5'>insurance</type>
+                    <attribute name='item' pos='26:16'>
+                        <variable pos='26:21'>CODE</variable>
+                    </attribute>
+                    <attribute name='cost' pos='26:27'>
+                        <test text='{' pos='26:32'>
+                            <gt text='&gt;' pos='26:33'>
+                                <attribute pos='26:27'>cost</attribute>
+                                <integer pos='26:35'>100</integer>
+                            </gt>
+                        </test>
+                    </attribute>
+                </wme-test>
+            </not>
+        </conditions>
+        <actions>
+            <insert text='ADD' pos='28:4'>
+                <wme-ctor text='(' pos='28:8'>
+                    <type pos='28:9'>cart</type>
+                    <attribute name='type' pos='28:14'>
+                        <constant pos='28:19'>phone</constant>
+                    </attribute>
+                    <attribute name='itemCode' pos='28:25'>
+                        <variable pos='28:34'>CODE</variable>
+                    </attribute>
+                    <attribute name='price' pos='28:39'>
+                        <variable pos='28:45'>MRP</variable>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <wme text='(' pos='39:0'>
+        <type pos='39:1'>counter</type>
+        <attribute name='value' pos='39:10'>
+            <integer pos='39:17'>1</integer>
+        </attribute>
+    </wme>
+    <wme text='(' pos='40:0'>
+        <type pos='40:1'>brick</type>
+        <attribute name='name' pos='40:7'>
+            <constant pos='40:13'>'A'</constant>
+        </attribute>
+        <attribute name='size' pos='40:17'>
+            <integer pos='40:23'>10</integer>
+        </attribute>
+        <attribute name='position' pos='40:26'>
+            <constant pos='40:36'>heap</constant>
+        </attribute>
+    </wme>
+    <wme text='(' pos='41:0'>
+        <type pos='41:1'>brick</type>
+        <attribute name='name' pos='41:7'>
+            <constant pos='41:13'>'B'</constant>
+        </attribute>
+        <attribute name='size' pos='41:17'>
+            <integer pos='41:23'>30</integer>
+        </attribute>
+        <attribute name='position' pos='41:26'>
+            <constant pos='41:36'>heap</constant>
+        </attribute>
+    </wme>
+    <wme text='(' pos='42:0'>
+        <type pos='42:1'>brick</type>
+        <attribute name='name' pos='42:7'>
+            <constant pos='42:13'>'C'</constant>
+        </attribute>
+        <attribute name='size' pos='42:17'>
+            <integer pos='42:23'>20</integer>
+        </attribute>
+        <attribute name='position' pos='42:26'>
+            <constant pos='42:36'>heap</constant>
+        </attribute>
+    </wme>
+    <rule text='IF' pos='44:0'>
+        <conditions>
+            <wme-test text='(' pos='44:3'>
+                <type pos='44:4'>brick</type>
+                <attribute name='position' pos='44:10'>
+                    <constant pos='44:20'>heap</constant>
+                </attribute>
+                <attribute name='name' pos='44:25'>
+                    <variable pos='44:31'>N</variable>
+                </attribute>
+                <attribute name='size' pos='44:33'>
+                    <variable pos='44:39'>S</variable>
+                </attribute>
+            </wme-test>
+            <not text='-' pos='45:2'>
+                <wme-test text='(' pos='45:3'>
+                    <type pos='45:4'>brick</type>
+                    <attribute name='position' pos='45:10'>
+                        <constant pos='45:20'>heap</constant>
+                    </attribute>
+                    <attribute name='size' pos='45:25'>
+                        <test text='{' pos='45:31'>
+                            <gt text='&gt;' pos='45:32'>
+                                <attribute pos='45:25'>size</attribute>
+                                <variable pos='45:34'>S</variable>
+                            </gt>
+                        </test>
+                    </attribute>
+                </wme-test>
+            </not>
+            <not text='-' pos='46:2'>
+                <wme-test text='(' pos='46:3'>
+                    <type pos='46:4'>brick</type>
+                    <attribute name='position' pos='46:10'>
+                        <constant pos='46:20'>hand</constant>
+                    </attribute>
+                </wme-test>
+            </not>
+        </conditions>
+        <actions>
+            <modify pos='48:3'>
+                <integer pos='48:10'>1</integer>
+                <attribute name='position' pos='48:13'>
+                    <constant pos='48:23'>hand</constant>
+                </attribute>
+            </modify>
+        </actions>
+    </rule>
+    <rule text='IF' pos='51:0'>
+        <conditions>
+            <wme-test text='(' pos='51:3'>
+                <type pos='51:4'>brick</type>
+                <attribute name='position' pos='51:10'>
+                    <constant pos='51:20'>hand</constant>
+                </attribute>
+                <attribute name='color' pos='51:25'>
+                    <defined pos='51:32'/>
+                </attribute>
+            </wme-test>
+            <wme-test text='(' pos='52:3'>
+                <type pos='52:4'>counter</type>
+                <attribute name='value' pos='52:12'>
+                    <variable pos='52:19'>I</variable>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <modify pos='54:3'>
+                <integer pos='54:10'>1</integer>
+                <attribute name='position' pos='54:13'>
+                    <variable pos='54:23'>I</variable>
+                </attribute>
+            </modify>
+            <modify pos='55:3'>
+                <integer pos='55:10'>2</integer>
+                <attribute name='value' pos='55:13'>
+                    <add text='+' pos='55:22'>
+                        <variable pos='55:21'>I</variable>
+                        <integer pos='55:23'>1</integer>
+                    </add>
+                </attribute>
+            </modify>
+        </actions>
+    </rule>
+    <rule text='IF' pos='62:0'>
+        <conditions>
+            <wme-test text='(' pos='62:3'>
+                <type pos='62:4'>wantDays</type>
+                <attribute name='year' pos='62:13'>
+                    <variable pos='62:19'>N</variable>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove pos='64:3'>
+                <integer pos='64:10'>1</integer>
+            </remove>
+            <insert pos='65:3'>
+                <wme-ctor text='(' pos='65:10'>
+                    <type pos='65:11'>year</type>
+                    <attribute name='mod4' pos='65:16'>
+                        <mod text='%' pos='65:24'>
+                            <variable pos='65:23'>N</variable>
+                            <integer pos='65:25'>4</integer>
+                        </mod>
+                    </attribute>
+                    <attribute name='mod100' pos='65:28'>
+                        <mod text='%' pos='65:38'>
+                            <variable pos='65:37'>N</variable>
+                            <integer pos='65:39'>100</integer>
+                        </mod>
+                    </attribute>
+                    <attribute name='mod400' pos='65:44'>
+                        <mod text='%' pos='65:54'>
+                            <variable pos='65:53'>N</variable>
+                            <integer pos='65:55'>400</integer>
+                        </mod>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='68:0'>
+        <conditions>
+            <wme-test text='(' pos='68:3'>
+                <type pos='68:4'>year</type>
+                <attribute name='mod400' pos='68:9'>
+                    <integer pos='68:17'>0</integer>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove pos='70:3'>
+                <integer pos='70:10'>1</integer>
+            </remove>
+            <insert pos='71:3'>
+                <wme-ctor text='(' pos='71:10'>
+                    <type pos='71:11'>hasDays</type>
+                    <attribute name='days' pos='71:19'>
+                        <integer pos='71:25'>366</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='74:0'>
+        <conditions>
+            <wme-test text='(' pos='74:3'>
+                <type pos='74:4'>year</type>
+                <attribute name='mod100' pos='74:9'>
+                    <integer pos='74:17'>0</integer>
+                </attribute>
+                <attribute name='mod400' pos='74:19'>
+                    <test text='{' pos='74:27'>
+                        <ne text='&lt;&gt;' pos='74:28'>
+                            <attribute pos='74:19'>mod400</attribute>
+                            <integer pos='74:31'>0</integer>
+                        </ne>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove pos='76:3'>
+                <integer pos='76:10'>1</integer>
+            </remove>
+            <insert pos='77:3'>
+                <wme-ctor text='(' pos='77:10'>
+                    <type pos='77:11'>hasDays</type>
+                    <attribute name='days' pos='77:19'>
+                        <integer pos='77:25'>365</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='80:0'>
+        <conditions>
+            <wme-test text='(' pos='80:3'>
+                <type pos='80:4'>year</type>
+                <attribute name='mod4' pos='80:9'>
+                    <integer pos='80:15'>0</integer>
+                </attribute>
+                <attribute name='mod100' pos='80:17'>
+                    <test text='{' pos='80:25'>
+                        <ne text='&lt;&gt;' pos='80:26'>
+                            <attribute pos='80:17'>mod100</attribute>
+                            <integer pos='80:29'>0</integer>
+                        </ne>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove pos='82:3'>
+                <integer pos='82:10'>1</integer>
+            </remove>
+            <insert pos='83:3'>
+                <wme-ctor text='(' pos='83:10'>
+                    <type pos='83:11'>hasDays</type>
+                    <attribute name='days' pos='83:19'>
+                        <integer pos='83:25'>366</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='86:0'>
+        <conditions>
+            <wme-test text='(' pos='86:3'>
+                <type pos='86:4'>year</type>
+                <attribute name='mod4' pos='86:9'>
+                    <test text='{' pos='86:15'>
+                        <ne text='&lt;&gt;' pos='86:16'>
+                            <attribute pos='86:9'>mod4</attribute>
+                            <integer pos='86:19'>0</integer>
+                        </ne>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove pos='88:3'>
+                <integer pos='88:10'>1</integer>
+            </remove>
+            <insert pos='89:3'>
+                <wme-ctor text='(' pos='89:10'>
+                    <type pos='89:11'>hasDays</type>
+                    <attribute name='days' pos='89:19'>
+                        <integer pos='89:25'>365</integer>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='96:0'>
+        <conditions>
+            <wme-test text='(' pos='96:3'>
+                <type pos='96:4'>bird</type>
+            </wme-test>
+        </conditions>
+        <actions>
+            <insert pos='96:15'>
+                <wme-ctor text='(' pos='96:22'>
+                    <type pos='96:23'>canFly</type>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='98:0'>
+        <conditions>
+            <wme-test text='(' pos='98:3'>
+                <type pos='98:4'>bird</type>
+                <attribute name='weight' pos='98:9'>
+                    <test text='{' pos='98:16'>
+                        <gt text='&gt;' pos='98:17'>
+                            <attribute pos='98:9'>weight</attribute>
+                            <integer pos='98:19'>100</integer>
+                        </gt>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <insert pos='98:30'>
+                <wme-ctor text='(' pos='98:37'>
+                    <type pos='98:38'>cannotFly</type>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='100:0'>
+        <conditions>
+            <wme-test text='(' pos='100:3'>
+                <type pos='100:4'>bird</type>
+            </wme-test>
+            <wme-test text='(' pos='100:10'>
+                <type pos='100:11'>penguin</type>
+            </wme-test>
+        </conditions>
+        <actions>
+            <insert pos='100:25'>
+                <wme-ctor text='(' pos='100:32'>
+                    <type pos='100:33'>cannotFly</type>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+    <rule text='IF' pos='106:0'>
+        <conditions>
+            <wme-test text='(' pos='106:3'>
+                <type pos='106:4'>goal</type>
+                <attribute name='is' pos='106:9'>
+                    <constant pos='106:13'>getUnitDigit</constant>
+                </attribute>
+            </wme-test>
+            <wme-test text='(' pos='107:3'>
+                <type pos='107:4'>minuend</type>
+                <attribute name='unit' pos='107:12'>
+                    <variable pos='107:18'>D</variable>
+                </attribute>
+            </wme-test>
+            <wme-test text='(' pos='108:3'>
+                <type pos='108:4'>subtrahend</type>
+                <attribute name='unit' pos='108:15'>
+                    <test text='{' pos='108:21'>
+                        <gt text='&gt;' pos='108:23'>
+                            <attribute pos='108:15'>unit</attribute>
+                            <variable pos='108:25'>D</variable>
+                        </gt>
+                    </test>
+                </attribute>
+            </wme-test>
+        </conditions>
+        <actions>
+            <remove pos='110:3'>
+                <integer pos='110:10'>1</integer>
+            </remove>
+            <insert pos='111:3'>
+                <wme-ctor text='(' pos='111:10'>
+                    <type pos='111:11'>goal</type>
+                    <attribute name='is' pos='111:16'>
+                        <constant pos='111:20'>borrowFromTens</constant>
+                    </attribute>
+                </wme-ctor>
+            </insert>
+        </actions>
+    </rule>
+</program>

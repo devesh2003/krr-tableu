@@ -1,0 +1,967 @@
+<fol>
+    <block label='{' pos='28:0'>
+        <forall text='∀' pos='29:4'>
+            <var-list>
+                <variable pos='29:5'>X</variable>
+                <variable pos='29:7'>Y</variable>
+                <variable pos='29:9'>Z</variable>
+            </var-list>
+            <implies text='⊃' pos='29:31'>
+                <and text='∧' pos='29:21'>
+                    <predicate name='p' pos='29:14'>
+                        <variable pos='29:16'>X</variable>
+                        <variable pos='29:18'>Y</variable>
+                    </predicate>
+                    <predicate name='p' pos='29:23'>
+                        <variable pos='29:25'>Y</variable>
+                        <variable pos='29:27'>Z</variable>
+                    </predicate>
+                </and>
+                <predicate name='p' pos='29:34'>
+                    <variable pos='29:36'>X</variable>
+                    <variable pos='29:38'>Z</variable>
+                </predicate>
+            </implies>
+        </forall>
+        <forall text='∀' pos='30:4'>
+            <var-list>
+                <variable pos='30:5'>X</variable>
+                <variable pos='30:7'>Y</variable>
+            </var-list>
+            <implies text='⊃' pos='30:31'>
+                <and text='∧' pos='30:21'>
+                    <predicate name='p' pos='30:14'>
+                        <variable pos='30:16'>X</variable>
+                        <variable pos='30:18'>Y</variable>
+                    </predicate>
+                    <predicate name='p' pos='30:23'>
+                        <variable pos='30:25'>Y</variable>
+                        <variable pos='30:27'>X</variable>
+                    </predicate>
+                </and>
+                <eq text='=' pos='30:36'>
+                    <variable pos='30:34'>X</variable>
+                    <variable pos='30:38'>Y</variable>
+                </eq>
+            </implies>
+        </forall>
+        <forall text='∀' pos='31:4'>
+            <var-list>
+                <variable pos='31:5'>X</variable>
+                <variable pos='31:7'>Y</variable>
+            </var-list>
+            <implies text='⊃' pos='31:21'>
+                <predicate name='p' pos='31:14'>
+                    <constant pos='31:16'>a</constant>
+                    <variable pos='31:18'>Y</variable>
+                </predicate>
+                <predicate name='p' pos='31:23'>
+                    <variable pos='31:25'>X</variable>
+                    <constant pos='31:27'>b</constant>
+                </predicate>
+            </implies>
+        </forall>
+        <block label='{' pos='32:4'>
+            <forall text='∀' pos='33:8'>
+                <variable pos='33:9'>X</variable>
+                <forall text='∀' pos='33:10'>
+                    <variable pos='33:11'>Y</variable>
+                    <forall text='∀' pos='33:12'>
+                        <variable pos='33:13'>Z</variable>
+                        <implies text='⊃' pos='33:35'>
+                            <and text='∧' pos='33:25'>
+                                <predicate name='p' pos='33:18'>
+                                    <variable pos='33:20'>X</variable>
+                                    <variable pos='33:22'>Y</variable>
+                                </predicate>
+                                <predicate name='p' pos='33:27'>
+                                    <variable pos='33:29'>Y</variable>
+                                    <variable pos='33:31'>Z</variable>
+                                </predicate>
+                            </and>
+                            <predicate name='p' pos='33:38'>
+                                <variable pos='33:40'>X</variable>
+                                <variable pos='33:42'>Z</variable>
+                            </predicate>
+                        </implies>
+                    </forall>
+                </forall>
+            </forall>
+            <forall text='∀' pos='34:8'>
+                <variable pos='34:9'>X</variable>
+                <forall text='∀' pos='34:10'>
+                    <variable pos='34:11'>Y</variable>
+                    <implies text='⊃' pos='34:35'>
+                        <and text='∧' pos='34:25'>
+                            <predicate name='p' pos='34:18'>
+                                <variable pos='34:20'>X</variable>
+                                <variable pos='34:22'>Y</variable>
+                            </predicate>
+                            <predicate name='p' pos='34:27'>
+                                <variable pos='34:29'>Y</variable>
+                                <variable pos='34:31'>X</variable>
+                            </predicate>
+                        </and>
+                        <eq text='=' pos='34:40'>
+                            <variable pos='34:38'>X</variable>
+                            <variable pos='34:42'>Y</variable>
+                        </eq>
+                    </implies>
+                </forall>
+            </forall>
+            <forall text='∀' pos='35:8'>
+                <variable pos='35:9'>X</variable>
+                <forall text='∀' pos='35:10'>
+                    <variable pos='35:11'>Y</variable>
+                    <implies text='⊃' pos='35:25'>
+                        <predicate name='p' pos='35:18'>
+                            <constant pos='35:20'>a</constant>
+                            <variable pos='35:22'>Y</variable>
+                        </predicate>
+                        <predicate name='p' pos='35:27'>
+                            <variable pos='35:29'>X</variable>
+                            <constant pos='35:31'>b</constant>
+                        </predicate>
+                    </implies>
+                </forall>
+            </forall>
+        </block>
+    </block>
+    <forall text='∀' pos='43:0'>
+        <variable pos='43:1'>Y</variable>
+        <implies text='⊃' pos='43:28'>
+            <and text='∧' pos='43:15'>
+                <predicate name='rich' pos='43:7'>
+                    <variable pos='43:12'>Y</variable>
+                </predicate>
+                <predicate name='man' pos='43:17'>
+                    <variable pos='43:21'>Y</variable>
+                </predicate>
+            </and>
+            <predicate name='loves' pos='43:30'>
+                <variable pos='43:36'>Y</variable>
+                <constant pos='43:38'>jane</constant>
+            </predicate>
+        </implies>
+    </forall>
+    <forall text='∀' pos='44:0'>
+        <variable pos='44:1'>Y</variable>
+        <implies text='⊃' pos='44:28'>
+            <and text='∧' pos='44:16'>
+                <predicate name='woman' pos='44:7'>
+                    <variable pos='44:13'>Y</variable>
+                </predicate>
+                <ne text='&lt;&gt;' pos='44:20'>
+                    <variable pos='44:18'>Y</variable>
+                    <constant pos='44:23'>jane</constant>
+                </ne>
+            </and>
+            <predicate name='loves' pos='44:30'>
+                <variable pos='44:36'>Y</variable>
+                <constant pos='44:38'>john</constant>
+            </predicate>
+        </implies>
+    </forall>
+    <forall text='∀' pos='45:0'>
+        <var-list>
+            <variable pos='45:1'>X</variable>
+            <variable pos='45:3'>Y</variable>
+        </var-list>
+        <implies text='⊃' pos='45:28'>
+            <predicate name='loves' pos='45:7'>
+                <variable pos='45:13'>X</variable>
+                <variable pos='45:15'>Y</variable>
+            </predicate>
+            <not text='￢' pos='45:30'>
+                <predicate name='blackMails' pos='45:31'>
+                    <variable pos='45:42'>X</variable>
+                    <variable pos='45:44'>Y</variable>
+                </predicate>
+            </not>
+        </implies>
+    </forall>
+    <or text='∨' pos='46:18'>
+        <predicate name='loves' pos='46:0'>
+            <constant pos='46:6'>jane</constant>
+            <constant pos='46:12'>john</constant>
+        </predicate>
+        <predicate name='loves' pos='46:20'>
+            <constant pos='46:26'>jane</constant>
+            <constant pos='46:32'>jim</constant>
+        </predicate>
+    </or>
+    <exists text='∃' pos='47:0'>
+        <variable pos='47:1'>X</variable>
+        <and text='∧' pos='47:16'>
+            <predicate name='adult' pos='47:7'>
+                <variable pos='47:13'>X</variable>
+            </predicate>
+            <predicate name='blackMails' pos='47:18'>
+                <variable pos='47:29'>X</variable>
+                <constant pos='47:32'>john</constant>
+            </predicate>
+        </and>
+    </exists>
+    <forall text='∀' pos='53:0'>
+        <variable pos='53:1'>X</variable>
+        <implies text='⊃' pos='53:22'>
+            <predicate name='man' pos='53:7'>
+                <variable pos='53:11'>X</variable>
+            </predicate>
+            <not text='￢' pos='53:24'>
+                <predicate name='woman' pos='53:25'>
+                    <constant pos='53:31'>x</constant>
+                </predicate>
+            </not>
+        </implies>
+    </forall>
+    <forall text='∀' pos='54:0'>
+        <variable pos='54:1'>X</variable>
+        <implies text='⊃' pos='54:22'>
+            <predicate name='surgeon' pos='54:7'>
+                <variable pos='54:15'>X</variable>
+            </predicate>
+            <predicate name='doctor' pos='54:24'>
+                <variable pos='54:31'>X</variable>
+            </predicate>
+        </implies>
+    </forall>
+    <forall text='∀' pos='55:0'>
+        <variable pos='55:1'>X</variable>
+        <implies text='⊃' pos='55:22'>
+            <predicate name='adult' pos='55:7'>
+                <variable pos='55:13'>X</variable>
+            </predicate>
+            <or text='∨' pos='55:31'>
+                <predicate name='man' pos='55:24'>
+                    <variable pos='55:28'>X</variable>
+                </predicate>
+                <predicate name='woman' pos='55:33'>
+                    <variable pos='55:39'>X</variable>
+                </predicate>
+            </or>
+        </implies>
+    </forall>
+    <forall text='∀' pos='56:0'>
+        <var-list>
+            <variable pos='56:1'>X</variable>
+            <variable pos='56:3'>Y</variable>
+        </var-list>
+        <implies text='⊃' pos='56:22'>
+            <predicate name='marriedTo' pos='56:7'>
+                <variable pos='56:17'>X</variable>
+                <variable pos='56:19'>Y</variable>
+            </predicate>
+            <predicate name='marriedTo' pos='56:24'>
+                <variable pos='56:34'>Y</variable>
+                <variable pos='56:36'>X</variable>
+            </predicate>
+        </implies>
+    </forall>
+    <forall text='∀' pos='57:0'>
+        <var-list>
+            <variable pos='57:1'>X</variable>
+            <variable pos='57:3'>Y</variable>
+        </var-list>
+        <implies text='⊃' pos='57:22'>
+            <predicate name='parentOf' pos='57:7'>
+                <variable pos='57:16'>X</variable>
+                <variable pos='57:18'>Y</variable>
+            </predicate>
+            <predicate name='childOf' pos='57:24'>
+                <variable pos='57:32'>Y</variable>
+                <variable pos='57:34'>X</variable>
+            </predicate>
+        </implies>
+    </forall>
+    <forall text='∀' pos='58:0'>
+        <var-list>
+            <variable pos='58:1'>X</variable>
+            <variable pos='58:3'>Y</variable>
+        </var-list>
+        <implies text='⊃' pos='58:22'>
+            <predicate name='marriedTo' pos='58:7'>
+                <variable pos='58:17'>X</variable>
+                <variable pos='58:19'>Y</variable>
+            </predicate>
+            <and text='∧' pos='58:34'>
+                <predicate name='person' pos='58:24'>
+                    <variable pos='58:31'>X</variable>
+                </predicate>
+                <predicate name='person' pos='58:36'>
+                    <variable pos='58:43'>Y</variable>
+                </predicate>
+            </and>
+        </implies>
+    </forall>
+    <forall text='∀' pos='59:0'>
+        <variable pos='59:1'>X</variable>
+        <iff text='≡' pos='59:22'>
+            <predicate name='richMan' pos='59:7'>
+                <variable pos='59:15'>X</variable>
+            </predicate>
+            <and text='∧' pos='59:32'>
+                <predicate name='rich' pos='59:24'>
+                    <variable pos='59:29'>X</variable>
+                </predicate>
+                <predicate name='man' pos='59:34'>
+                    <variable pos='59:38'>X</variable>
+                </predicate>
+            </and>
+        </iff>
+    </forall>
+    <forall text='∀' pos='67:0'>
+        <var-list>
+            <variable pos='67:1'>A</variable>
+            <variable pos='67:3'>B</variable>
+            <variable pos='67:5'>C</variable>
+        </var-list>
+        <implied-by text='⊂' pos='67:36'>
+            <and text='∧' pos='67:25'>
+                <predicate name='append' pos='67:11'>
+                    <variable pos='67:18'>A</variable>
+                    <variable pos='67:20'>B</variable>
+                    <variable pos='67:22'>C</variable>
+                </predicate>
+                <eq text='=' pos='67:28'>
+                    <variable pos='67:27'>C</variable>
+                    <variable pos='67:29'>B</variable>
+                </eq>
+            </and>
+            <eq text='=' pos='67:40'>
+                <variable pos='67:39'>A</variable>
+                <nil pos='67:41'/>
+            </eq>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='68:0'>
+        <var-list>
+            <variable pos='68:1'>X</variable>
+            <variable pos='68:3'>A</variable>
+            <variable pos='68:5'>B</variable>
+            <variable pos='68:7'>C</variable>
+        </var-list>
+        <implied-by text='⊂' pos='68:36'>
+            <predicate name='append' pos='68:11'>
+                <cons text='|' pos='68:20'>
+                    <variable pos='68:19'>X</variable>
+                    <variable pos='68:21'>A</variable>
+                </cons>
+                <variable pos='68:25'>B</variable>
+                <cons text='|' pos='68:30'>
+                    <variable pos='68:29'>X</variable>
+                    <variable pos='68:31'>C</variable>
+                </cons>
+            </predicate>
+            <predicate name='append' pos='68:39'>
+                <variable pos='68:46'>A</variable>
+                <variable pos='68:48'>B</variable>
+                <variable pos='68:50'>C</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='70:0'>
+        <var-list>
+            <variable pos='70:1'>A</variable>
+            <variable pos='70:3'>B</variable>
+            <variable pos='70:5'>C</variable>
+        </var-list>
+        <implies text='⊃' pos='70:26'>
+            <eq text='=' pos='70:21'>
+                <variable pos='70:20'>A</variable>
+                <nil pos='70:22'/>
+            </eq>
+            <and text='∧' pos='70:43'>
+                <predicate name='append' pos='70:29'>
+                    <variable pos='70:36'>A</variable>
+                    <variable pos='70:38'>B</variable>
+                    <variable pos='70:40'>C</variable>
+                </predicate>
+                <eq text='=' pos='70:47'>
+                    <variable pos='70:45'>C</variable>
+                    <variable pos='70:49'>B</variable>
+                </eq>
+            </and>
+        </implies>
+    </forall>
+    <forall text='∀' pos='71:0'>
+        <var-list>
+            <variable pos='71:1'>X</variable>
+            <variable pos='71:3'>A</variable>
+            <variable pos='71:5'>B</variable>
+            <variable pos='71:7'>C</variable>
+        </var-list>
+        <implies text='⊃' pos='71:26'>
+            <predicate name='append' pos='71:11'>
+                <variable pos='71:18'>A</variable>
+                <variable pos='71:20'>B</variable>
+                <variable pos='71:22'>C</variable>
+            </predicate>
+            <predicate name='append' pos='71:29'>
+                <cons text='|' pos='71:38'>
+                    <variable pos='71:37'>X</variable>
+                    <variable pos='71:39'>A</variable>
+                </cons>
+                <variable pos='71:43'>B</variable>
+                <cons text='|' pos='71:48'>
+                    <variable pos='71:47'>X</variable>
+                    <variable pos='71:49'>C</variable>
+                </cons>
+            </predicate>
+        </implies>
+    </forall>
+    <forall text='∀' pos='85:0'>
+        <var-list>
+            <variable pos='85:1'>P</variable>
+            <variable pos='85:3'>X</variable>
+        </var-list>
+        <implied-by text='⊂' pos='85:22'>
+            <predicate name='parent' pos='85:9'>
+                <variable pos='85:16'>P</variable>
+                <variable pos='85:18'>X</variable>
+            </predicate>
+            <predicate name='mother' pos='85:25'>
+                <variable pos='85:32'>P</variable>
+                <variable pos='85:34'>X</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='86:0'>
+        <var-list>
+            <variable pos='86:1'>P</variable>
+            <variable pos='86:3'>X</variable>
+        </var-list>
+        <implied-by text='⊂' pos='86:22'>
+            <predicate name='parent' pos='86:9'>
+                <variable pos='86:16'>P</variable>
+                <variable pos='86:18'>X</variable>
+            </predicate>
+            <predicate name='father' pos='86:25'>
+                <variable pos='86:32'>P</variable>
+                <variable pos='86:34'>X</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='88:0'>
+        <var-list>
+            <variable pos='88:1'>G</variable>
+            <variable pos='88:3'>P</variable>
+        </var-list>
+        <implied-by text='⊂' pos='88:27'>
+            <predicate name='grandparent' pos='88:9'>
+                <variable pos='88:21'>G</variable>
+                <variable pos='88:23'>X</variable>
+            </predicate>
+            <and text='∧' pos='88:42'>
+                <predicate name='parent' pos='88:30'>
+                    <variable pos='88:37'>G</variable>
+                    <variable pos='88:39'>P</variable>
+                </predicate>
+                <predicate name='parent' pos='88:44'>
+                    <variable pos='88:51'>P</variable>
+                    <variable pos='88:53'>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='90:0'>
+        <var-list>
+            <variable pos='90:1'>A</variable>
+            <variable pos='90:3'>B</variable>
+        </var-list>
+        <implied-by text='⊂' pos='90:24'>
+            <predicate name='ancestor' pos='90:9'>
+                <variable pos='90:18'>A</variable>
+                <variable pos='90:20'>B</variable>
+            </predicate>
+            <predicate name='parent' pos='90:27'>
+                <variable pos='90:34'>A</variable>
+                <variable pos='90:36'>B</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='91:0'>
+        <var-list>
+            <variable pos='91:1'>A</variable>
+            <variable pos='91:3'>X</variable>
+            <variable pos='91:5'>B</variable>
+        </var-list>
+        <implied-by text='⊂' pos='91:24'>
+            <predicate name='ancestor' pos='91:9'>
+                <variable pos='91:18'>A</variable>
+                <variable pos='91:20'>B</variable>
+            </predicate>
+            <and text='∧' pos='91:39'>
+                <predicate name='parent' pos='91:27'>
+                    <variable pos='91:34'>A</variable>
+                    <variable pos='91:36'>X</variable>
+                </predicate>
+                <predicate name='ancestor' pos='91:41'>
+                    <variable pos='91:50'>X</variable>
+                    <variable pos='91:52'>B</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='94:0'>
+        <var-list>
+            <variable pos='94:1'>A</variable>
+            <variable pos='94:3'>B</variable>
+        </var-list>
+        <implied-by text='⊂' pos='94:25'>
+            <predicate name='ancestor2' pos='94:9'>
+                <variable pos='94:19'>A</variable>
+                <variable pos='94:21'>B</variable>
+            </predicate>
+            <predicate name='parent' pos='94:28'>
+                <variable pos='94:35'>A</variable>
+                <variable pos='94:37'>B</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='95:0'>
+        <var-list>
+            <variable pos='95:1'>A</variable>
+            <variable pos='95:3'>X</variable>
+            <variable pos='95:5'>B</variable>
+        </var-list>
+        <implied-by text='⊂' pos='95:25'>
+            <predicate name='ancestor2' pos='95:9'>
+                <variable pos='95:19'>A</variable>
+                <variable pos='95:21'>B</variable>
+            </predicate>
+            <and text='∧' pos='95:40'>
+                <predicate name='parent' pos='95:28'>
+                    <variable pos='95:35'>X</variable>
+                    <variable pos='95:37'>B</variable>
+                </predicate>
+                <predicate name='ancestor2' pos='95:42'>
+                    <variable pos='95:52'>A</variable>
+                    <variable pos='95:54'>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='98:0'>
+        <var-list>
+            <variable pos='98:1'>A</variable>
+            <variable pos='98:3'>B</variable>
+        </var-list>
+        <implied-by text='⊂' pos='98:25'>
+            <predicate name='ancestor3' pos='98:9'>
+                <variable pos='98:19'>A</variable>
+                <variable pos='98:21'>B</variable>
+            </predicate>
+            <predicate name='parent' pos='98:28'>
+                <variable pos='98:35'>A</variable>
+                <variable pos='98:37'>B</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='99:0'>
+        <var-list>
+            <variable pos='99:1'>A</variable>
+            <variable pos='99:3'>X</variable>
+            <variable pos='99:5'>B</variable>
+        </var-list>
+        <implied-by text='⊂' pos='99:25'>
+            <predicate name='ancestor3' pos='99:9'>
+                <variable pos='99:19'>A</variable>
+                <variable pos='99:21'>B</variable>
+            </predicate>
+            <and text='∧' pos='99:43'>
+                <predicate name='ancestor3' pos='99:28'>
+                    <variable pos='99:38'>A</variable>
+                    <variable pos='99:40'>X</variable>
+                </predicate>
+                <predicate name='ancestor3' pos='99:45'>
+                    <variable pos='99:55'>X</variable>
+                    <variable pos='99:57'>B</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='108:0'>
+        <variable pos='108:1'>N</variable>
+        <forall text='∀' pos='108:3'>
+            <variable pos='108:4'>V</variable>
+            <implied-by text='⊂' pos='108:24'>
+                <predicate name='fib' pos='108:11'>
+                    <variable pos='108:15'>N</variable>
+                    <variable pos='108:17'>V</variable>
+                </predicate>
+                <and text='∧' pos='108:31'>
+                    <eq text='=' pos='108:28'>
+                        <variable pos='108:27'>N</variable>
+                        <integer pos='108:29'>0</integer>
+                    </eq>
+                    <eq text='=' pos='108:34'>
+                        <variable pos='108:33'>V</variable>
+                        <integer pos='108:35'>1</integer>
+                    </eq>
+                </and>
+            </implied-by>
+        </forall>
+    </forall>
+    <forall text='∀' pos='109:0'>
+        <variable pos='109:1'>N</variable>
+        <forall text='∀' pos='109:3'>
+            <variable pos='109:4'>V</variable>
+            <implied-by text='⊂' pos='109:24'>
+                <predicate name='fib' pos='109:11'>
+                    <variable pos='109:15'>N</variable>
+                    <variable pos='109:17'>V</variable>
+                </predicate>
+                <and text='∧' pos='109:31'>
+                    <eq text='=' pos='109:28'>
+                        <variable pos='109:27'>N</variable>
+                        <integer pos='109:29'>1</integer>
+                    </eq>
+                    <eq text='=' pos='109:34'>
+                        <variable pos='109:33'>V</variable>
+                        <integer pos='109:35'>1</integer>
+                    </eq>
+                </and>
+            </implied-by>
+        </forall>
+    </forall>
+    <forall text='∀' pos='110:0'>
+        <variable pos='110:1'>N</variable>
+        <forall text='∀' pos='110:3'>
+            <variable pos='110:4'>U</variable>
+            <forall text='∀' pos='110:6'>
+                <variable pos='110:7'>V</variable>
+                <implied-by text='⊂' pos='110:24'>
+                    <predicate name='fib' pos='110:11'>
+                        <add text='+' pos='110:16'>
+                            <variable pos='110:15'>N</variable>
+                            <integer pos='110:17'>2</integer>
+                        </add>
+                        <add text='+' pos='110:20'>
+                            <variable pos='110:19'>U</variable>
+                            <variable pos='110:21'>V</variable>
+                        </add>
+                    </predicate>
+                    <and text='∧' pos='110:36'>
+                        <predicate name='fib' pos='110:27'>
+                            <variable pos='110:31'>N</variable>
+                            <variable pos='110:33'>U</variable>
+                        </predicate>
+                        <predicate name='fib' pos='110:38'>
+                            <add text='+' pos='110:43'>
+                                <variable pos='110:42'>N</variable>
+                                <integer pos='110:44'>1</integer>
+                            </add>
+                            <variable pos='110:46'>V</variable>
+                        </predicate>
+                    </and>
+                </implied-by>
+            </forall>
+        </forall>
+    </forall>
+    <forall text='∀' pos='116:0'>
+        <var-list>
+            <variable pos='116:1'>N</variable>
+            <variable pos='116:3'>V</variable>
+        </var-list>
+        <implied-by text='⊂' pos='116:26'>
+            <predicate name='fib' pos='116:11'>
+                <variable pos='116:15'>N</variable>
+                <variable pos='116:17'>V</variable>
+            </predicate>
+            <and text='∧' pos='116:32'>
+                <eq text='=' pos='116:29'>
+                    <variable pos='116:28'>N</variable>
+                    <integer pos='116:30'>0</integer>
+                </eq>
+                <eq text='=' pos='116:35'>
+                    <variable pos='116:34'>V</variable>
+                    <integer pos='116:36'>1</integer>
+                </eq>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='117:0'>
+        <var-list>
+            <variable pos='117:1'>N</variable>
+            <variable pos='117:3'>V</variable>
+        </var-list>
+        <implied-by text='⊂' pos='117:26'>
+            <predicate name='fib' pos='117:11'>
+                <variable pos='117:15'>N</variable>
+                <variable pos='117:17'>V</variable>
+            </predicate>
+            <and text='∧' pos='117:32'>
+                <eq text='=' pos='117:29'>
+                    <variable pos='117:28'>N</variable>
+                    <integer pos='117:30'>1</integer>
+                </eq>
+                <eq text='=' pos='117:35'>
+                    <variable pos='117:34'>V</variable>
+                    <integer pos='117:36'>1</integer>
+                </eq>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='118:0'>
+        <var-list>
+            <variable pos='118:1'>N</variable>
+            <variable pos='118:3'>U</variable>
+            <variable pos='118:5'>V</variable>
+            <variable pos='118:7'>W</variable>
+        </var-list>
+        <implied-by text='⊂' pos='118:26'>
+            <predicate name='fib' pos='118:11'>
+                <function name='s' pos='118:15'>
+                    <function name='s' pos='118:17'>
+                        <variable pos='118:19'>N</variable>
+                    </function>
+                </function>
+                <variable pos='118:23'>W</variable>
+            </predicate>
+            <and text='∧' pos='118:51'>
+                <and text='∧' pos='118:37'>
+                    <predicate name='fib' pos='118:28'>
+                        <variable pos='118:32'>N</variable>
+                        <variable pos='118:34'>U</variable>
+                    </predicate>
+                    <predicate name='fib' pos='118:39'>
+                        <function name='s' pos='118:43'>
+                            <variable pos='118:45'>N</variable>
+                        </function>
+                        <variable pos='118:48'>V</variable>
+                    </predicate>
+                </and>
+                <predicate name='plus' pos='118:53'>
+                    <variable pos='118:58'>U</variable>
+                    <variable pos='118:60'>V</variable>
+                    <variable pos='118:62'>W</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='125:0'>
+        <var-list>
+            <variable pos='125:1'>A</variable>
+            <variable pos='125:3'>B</variable>
+            <variable pos='125:5'>C</variable>
+        </var-list>
+        <implied-by text='⊂' pos='125:28'>
+            <and text='∧' pos='125:21'>
+                <predicate name='plus' pos='125:9'>
+                    <variable pos='125:14'>A</variable>
+                    <variable pos='125:16'>B</variable>
+                    <variable pos='125:18'>C</variable>
+                </predicate>
+                <eq text='=' pos='125:24'>
+                    <variable pos='125:23'>C</variable>
+                    <variable pos='125:25'>B</variable>
+                </eq>
+            </and>
+            <eq text='=' pos='125:31'>
+                <variable pos='125:30'>A</variable>
+                <integer pos='125:32'>0</integer>
+            </eq>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='126:0'>
+        <var-list>
+            <variable pos='126:1'>A</variable>
+            <variable pos='126:3'>B</variable>
+            <variable pos='126:5'>C</variable>
+        </var-list>
+        <implied-by text='⊂' pos='126:28'>
+            <predicate name='plus' pos='126:9'>
+                <function name='s' pos='126:14'>
+                    <variable pos='126:16'>A</variable>
+                </function>
+                <variable pos='126:19'>B</variable>
+                <variable pos='126:21'>C</variable>
+            </predicate>
+            <predicate name='plus' pos='126:30'>
+                <variable pos='126:35'>A</variable>
+                <function name='s' pos='126:37'>
+                    <variable pos='126:39'>B</variable>
+                </function>
+                <variable pos='126:42'>C</variable>
+            </predicate>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='136:0'>
+        <variable pos='136:1'>N</variable>
+        <predicate name='power' pos='136:3'>
+            <integer pos='136:9'>0</integer>
+            <variable pos='136:11'>N</variable>
+            <integer pos='136:13'>1</integer>
+        </predicate>
+    </forall>
+    <forall text='∀' pos='137:0'>
+        <var-list>
+            <variable pos='137:1'>A</variable>
+            <variable pos='137:3'>N</variable>
+            <variable pos='137:5'>V</variable>
+        </var-list>
+        <implied-by text='⊂' pos='137:24'>
+            <predicate name='power' pos='137:9'>
+                <variable pos='137:15'>A</variable>
+                <variable pos='137:17'>N</variable>
+                <variable pos='137:19'>V</variable>
+            </predicate>
+            <and text='∧' pos='137:39'>
+                <predicate name='even' pos='137:27'>
+                    <variable pos='137:32'>N</variable>
+                </predicate>
+                <predicate name='power' pos='137:41'>
+                    <mul text='*' pos='137:48'>
+                        <variable pos='137:47'>A</variable>
+                        <variable pos='137:49'>A</variable>
+                    </mul>
+                    <div text='/' pos='137:52'>
+                        <variable pos='137:51'>N</variable>
+                        <integer pos='137:53'>2</integer>
+                    </div>
+                    <variable pos='137:55'>V</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='138:0'>
+        <var-list>
+            <variable pos='138:1'>A</variable>
+            <variable pos='138:3'>N</variable>
+            <variable pos='138:5'>V</variable>
+        </var-list>
+        <implied-by text='⊂' pos='138:24'>
+            <predicate name='power' pos='138:9'>
+                <variable pos='138:15'>A</variable>
+                <variable pos='138:17'>N</variable>
+                <mul text='*' pos='138:20'>
+                    <variable pos='138:19'>A</variable>
+                    <variable pos='138:21'>V</variable>
+                </mul>
+            </predicate>
+            <and text='∧' pos='138:39'>
+                <not pos='138:27'>
+                    <predicate name='even' pos='138:31'>
+                        <variable pos='138:36'>N</variable>
+                    </predicate>
+                </not>
+                <predicate name='power' pos='138:41'>
+                    <mul text='*' pos='138:48'>
+                        <variable pos='138:47'>A</variable>
+                        <variable pos='138:49'>A</variable>
+                    </mul>
+                    <div text='/' pos='138:56'>
+                        <sub text='-' pos='138:53'>
+                            <variable pos='138:52'>N</variable>
+                            <integer pos='138:54'>1</integer>
+                        </sub>
+                        <integer pos='138:57'>2</integer>
+                    </div>
+                    <variable pos='138:59'>V</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='144:0'>
+        <var-list>
+            <variable pos='144:1'>G</variable>
+            <variable pos='144:3'>X</variable>
+        </var-list>
+        <implied-by text='⊂' pos='144:27'>
+            <predicate name='grandparent' pos='144:9'>
+                <variable pos='144:21'>G</variable>
+                <variable pos='144:23'>X</variable>
+            </predicate>
+            <and text='∧' pos='144:41'>
+                <predicate name='parent' pos='144:29'>
+                    <variable pos='144:36'>G</variable>
+                    <variable pos='144:38'>P</variable>
+                </predicate>
+                <predicate name='parent' pos='144:43'>
+                    <variable pos='144:50'>P</variable>
+                    <variable pos='144:52'>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='146:0'>
+        <var-list>
+            <variable pos='146:1'>X</variable>
+            <variable pos='146:3'>Y</variable>
+            <variable pos='146:5'>Z</variable>
+        </var-list>
+        <implied-by text='⊂' pos='146:27'>
+            <predicate name='cousin' pos='146:9'>
+                <variable pos='146:16'>X</variable>
+                <variable pos='146:18'>Y</variable>
+            </predicate>
+            <and text='∧' pos='148:49'>
+                <and text='∧' pos='147:49'>
+                    <and text='∧' pos='146:38'>
+                        <not text='￢' pos='146:29'>
+                            <eq text='=' pos='146:33'>
+                                <variable pos='146:31'>X</variable>
+                                <variable pos='146:35'>Y</variable>
+                            </eq>
+                        </not>
+                        <not pos='147:32'>
+                            <predicate name='sibling' pos='147:36'>
+                                <variable pos='147:44'>X</variable>
+                                <variable pos='147:46'>Y</variable>
+                            </predicate>
+                        </not>
+                    </and>
+                    <predicate name='grandparent' pos='148:32'>
+                        <variable pos='148:44'>Z</variable>
+                        <variable pos='148:46'>X</variable>
+                    </predicate>
+                </and>
+                <predicate name='grandparent' pos='149:32'>
+                    <variable pos='149:44'>Z</variable>
+                    <variable pos='149:46'>Y</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='152:0'>
+        <var-list>
+            <variable pos='152:1'>X</variable>
+            <variable pos='152:3'>Y</variable>
+        </var-list>
+        <implied-by text='⊂' pos='152:29'>
+            <predicate name='americanCousin' pos='152:8'>
+                <variable pos='152:23'>X</variable>
+                <variable pos='152:25'>Y</variable>
+            </predicate>
+            <and text='∧' pos='152:44'>
+                <predicate name='cousin' pos='152:32'>
+                    <variable pos='152:39'>X</variable>
+                    <variable pos='152:41'>Y</variable>
+                </predicate>
+                <predicate name='american' pos='152:46'>
+                    <variable pos='152:55'>X</variable>
+                </predicate>
+            </and>
+        </implied-by>
+    </forall>
+    <forall text='∀' pos='158:0'>
+        <variable pos='158:1'>N</variable>
+        <implied-by text='⊂' pos='158:19'>
+            <predicate name='composite' pos='158:5'>
+                <variable pos='158:15'>N</variable>
+            </predicate>
+            <and text='∧' pos='158:28'>
+                <gt text='&gt;' pos='158:24'>
+                    <variable pos='158:22'>N</variable>
+                    <integer pos='158:26'>1</integer>
+                </gt>
+                <not text='￢' pos='158:30'>
+                    <predicate name='prime' pos='158:31'>
+                        <variable pos='158:37'>N</variable>
+                    </predicate>
+                </not>
+            </and>
+        </implied-by>
+    </forall>
+</fol>

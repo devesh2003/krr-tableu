@@ -1,0 +1,112 @@
+#---------------------------------------------------------------------
+# SAMPLE
+#---------------------------------------------------------------------
+
+(person height:80 weight:80 age:40 income:[2*(100+20)-5]) ;
+(phone itemCode:a15 brand:apple color:silver memory:64 cost:30 warranty:48 tax:[0.05*30]) ;
+(delivery item:a15 days:1) ;
+(stock item:a15 available:19 quantity:29 blocked:10) ;
+(loan item:a15 emi:2.5) ;
+(insurance provider:acme item:a15 cost:10 limit:40) ;
+(insurance provider:star item:a15 cost:60 limit:80 flood:covered fire:covered) ;
+
+IF  (phone  itemCode : CODE               # bind CODE to itemCode
+            brand    : apple              # brand is apple
+            color    : {=red ∨ =blue}     # color=red or color=blue
+            memory   : {>= 32 ∧ =< 64}    # memory >= 32 and memory =< 64
+            cost     : MRP {< 10 ∨ > 20}  # bind MRP to cost; cost < 10 or cost > 20
+            warranty : _                  # warranty attribute is defined
+            phoneCase: null               # phoneCase attribute is not defined
+            tax      : TAX                # bind TAX to tax
+    )
+    (delivery  item:CODE  days:{￢ > 5})            # not (days > 5)
+    (stock  item:CODE  available:{>= 2})            # available >= 0
+    (loan   item:CODE  emi:{< [(MRP-TAX)/10]})      # emi < [(MRP-TAX)/10]
+    (insurance  item:CODE  cost:_ )                 # cost is defined
+   -(insurance  item:CODE  cost:{> 100})            # there is no insurance where (cost > 100)
+THEN
+    ADD (cart type:phone itemCode:CODE price:MRP)
+;
+
+#---------------------------------------------------------------------
+#  Examples from Brachman and Levesque
+#  Knowledge Representation and Reasoning
+#  Morgan Kaufmann Publichers
+#---------------------------------------------------------------------
+# 7.4 A FIRST EXAMPLE
+#---------------------------------------------------------------------
+
+(counter  value: 1) ;
+(brick name: 'A' size: 10 position: heap) ;
+(brick name: 'B' size: 30 position: heap) ;
+(brick name: 'C' size: 20 position: heap) ;
+
+IF (brick position: heap name: N size: S)
+  -(brick position: heap size: {> S})
+  -(brick position: hand)
+THEN
+   MODIFY 1 (position: hand)
+;
+
+IF (brick position: hand color: _)
+   (counter value: I)
+THEN
+   MODIFY 1 (position: I)
+   MODIFY 2 (value: [I+1])
+;
+
+#---------------------------------------------------------------------
+# 7.5 A SECOND EXAMPLE
+#---------------------------------------------------------------------
+
+IF (wantDays year: N)
+THEN
+   REMOVE 1
+   INSERT (year mod4: [N%4] mod100: [N%100] mod400: [N%400])
+;
+
+IF (year mod400: 0)
+THEN
+   REMOVE 1
+   INSERT (hasDays days: 366)
+;
+
+IF (year mod100: 0 mod400: {<> 0})
+THEN
+   REMOVE 1
+   INSERT (hasDays days: 365)
+;
+
+IF (year mod4: 0 mod100: {<> 0})
+THEN
+   REMOVE 1
+   INSERT (hasDays days: 366)
+;
+
+IF (year mod4: {<> 0})
+THEN
+   REMOVE 1
+   INSERT (hasDays days: 365)
+;
+
+#---------------------------------------------------------------------
+# 7.6 CONFLICT RESOLUTION
+#---------------------------------------------------------------------
+
+IF (bird) THEN INSERT (canFly) ;
+
+IF (bird weight:{> 100}) THEN INSERT (cannotFly) ;
+
+IF (bird) (penguin) THEN INSERT (cannotFly) ;
+
+#---------------------------------------------------------------------
+# 7.8 APPLICATIONS AND ADVANTAGES
+#---------------------------------------------------------------------
+
+IF (goal is: getUnitDigit)
+   (minuend unit: D)
+   (subtrahend unit: { > D})
+THEN
+   REMOVE 1
+   INSERT (goal is: borrowFromTens)
+;

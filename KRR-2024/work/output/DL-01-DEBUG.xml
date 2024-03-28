@@ -1,0 +1,126 @@
+<brachman-dl>
+    <block text='{' pos='18:0'>
+        <subsumed-by text='=&gt;' pos='19:12'>
+            <concept pos='19:4'>Surgeon</concept>
+            <concept pos='19:15'>Doctor</concept>
+        </subsumed-by>
+        <equivalent-to text='=' pos='21:19'>
+            <concept pos='21:4'>BlendedRedWine</concept>
+            <and pos='22:7'>
+                <concept pos='22:11'>Wine</concept>
+                <fills pos='23:12'>
+                    <role pos='23:19'>Color</role>
+                    <constant pos='23:25'>red</constant>
+                </fills>
+                <exists pos='24:12'>
+                    <integer pos='24:19'>2</integer>
+                    <role pos='24:22'>GrapeType</role>
+                </exists>
+            </and>
+        </equivalent-to>
+        <equivalent-to text='=' pos='28:23'>
+            <concept pos='28:4'>ProgressiveCompany</concept>
+            <and pos='29:7'>
+                <concept pos='29:11'>Company</concept>
+                <exists pos='30:12'>
+                    <integer pos='30:19'>7</integer>
+                    <role pos='30:22'>Director</role>
+                </exists>
+                <all pos='31:12'>
+                    <role pos='31:17'>Manager</role>
+                    <and pos='32:17'>
+                        <concept pos='32:21'>Woman</concept>
+                        <fills pos='33:22'>
+                            <role pos='33:29'>Degree</role>
+                            <constant pos='33:36'>phD</constant>
+                        </fills>
+                    </and>
+                </all>
+                <fills pos='36:12'>
+                    <role pos='36:19'>MinSalary</role>
+                    <div text='/' pos='36:34'>
+                        <float pos='36:29'>24.00</float>
+                        <constant pos='36:35'>hour</constant>
+                    </div>
+                </fills>
+            </and>
+        </equivalent-to>
+    </block>
+    <equivalent-to text='=' pos='45:14'>
+        <concept pos='45:0'>WellRoundedCo</concept>
+        <and pos='46:3'>
+            <concept pos='46:7'>Company</concept>
+            <all pos='47:8'>
+                <role pos='47:13'>Manager</role>
+                <and pos='47:22'>
+                    <concept pos='47:26'>B-SchoolGrad</concept>
+                    <exists pos='48:27'>
+                        <integer pos='48:34'>1</integer>
+                        <role pos='48:37'>TechnicalDegree</role>
+                    </exists>
+                </and>
+            </all>
+        </and>
+    </equivalent-to>
+    <equivalent-to text='=' pos='54:11'>
+        <concept pos='54:0'>HighTechCo</concept>
+        <and pos='55:3'>
+            <concept pos='55:7'>Company</concept>
+            <fills pos='56:8'>
+                <role pos='56:15'>Exchange</role>
+                <constant pos='56:24'>nasdaq</constant>
+            </fills>
+            <all pos='57:8'>
+                <role pos='57:13'>Manager</role>
+                <concept pos='57:21'>Techie</concept>
+            </all>
+        </and>
+    </equivalent-to>
+    <equivalent-to text='=' pos='61:7'>
+        <concept pos='61:0'>Techie</concept>
+        <exists pos='61:10'>
+            <integer pos='61:17'>2</integer>
+            <role pos='61:20'>TechnicalDegree</role>
+        </exists>
+    </equivalent-to>
+    <instance-of text='-&gt;' pos='67:4'>
+        <constant pos='67:0'>joe</constant>
+        <concept pos='67:7'>Person</concept>
+    </instance-of>
+    <instance-of text='-&gt;' pos='69:8'>
+        <constant pos='69:0'>canCorp</constant>
+        <and pos='70:3'>
+            <concept pos='70:7'>Company</concept>
+            <all pos='71:8'>
+                <role pos='71:13'>Manager</role>
+                <concept pos='71:21'>Canadian</concept>
+            </all>
+            <fills pos='72:8'>
+                <role pos='72:15'>Manager</role>
+                <constant pos='72:23'>joe</constant>
+            </fills>
+        </and>
+    </instance-of>
+    <instance-of text='-&gt;' pos='76:6'>
+        <constant pos='76:0'>ellen</constant>
+        <and pos='77:3'>
+            <exists pos='77:8'>
+                <integer pos='77:15'>1</integer>
+                <role pos='77:18'>Child</role>
+            </exists>
+            <all pos='78:8'>
+                <role pos='78:13'>Child</role>
+                <and pos='78:20'>
+                    <fills pos='78:25'>
+                        <role pos='78:32'>Pediatrician</role>
+                        <constant pos='78:45'>marianne</constant>
+                    </fills>
+                    <all pos='79:25'>
+                        <role pos='79:30'>Pediatrician</role>
+                        <concept pos='79:43'>Scandinavian</concept>
+                    </all>
+                </and>
+            </all>
+        </and>
+    </instance-of>
+</brachman-dl>
