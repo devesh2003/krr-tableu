@@ -39,6 +39,8 @@ class Node:
         # 2 -> non-terminal (formula)
         self._type = _type
         self.value = None
+        self.expanded = False
+        self.children = []
     
     def __str__(self) -> str:
         return self.value
@@ -50,7 +52,7 @@ class Tree:
         self.root = None
         self.open_nodes = [] # to expand tree for tableu
     
-    def expand(self, rule: Formula):
+    def expand(self, node: Node ,rule: Formula):
         pass
 
 def print_element(elem, indent=0):
@@ -117,7 +119,6 @@ def construct_formula(elem):
             return Formula(first, second, branch=is_branch)
     else:
         raise ValueError("Unexpected number of child elements in formula construction")
-
 
 def main():
     dom = minidom.parse("KRR-2024/work/output/PL-01.xml")
