@@ -4,23 +4,31 @@
             <variable pos='4:4'>P</variable>
             <variable pos='4:10'>Q</variable>
         </and>
-        <implies text='=&gt;' pos='5:6'>
-            <variable pos='5:4'>p</variable>
-            <variable pos='5:9'>R</variable>
-        </implies>
-        <implies text='=&gt;' pos='6:14'>
-            <and pos='6:7'>
-                <variable pos='6:5'>R</variable>
-                <variable pos='6:11'>S</variable>
-            </and>
-            <variable pos='6:17'>T</variable>
-        </implies>
-        <or pos='7:7'>
-            <not text='~' pos='7:4'>
-                <variable pos='7:5'>Q</variable>
+        <or pos='8:7'>
+            <not text='~' pos='8:4'>
+                <variable pos='8:5'>P</variable>
             </not>
-            <variable pos='7:10'>S</variable>
+            <variable pos='8:10'>R</variable>
         </or>
-        <variable pos='10:4'>T</variable>
+        <or pos='9:13'>
+            <or pos='9:7'>
+                <not text='~' pos='9:4'>
+                    <variable pos='9:5'>R</variable>
+                </not>
+                <not text='~' pos='9:10'>
+                    <variable pos='9:11'>S</variable>
+                </not>
+            </or>
+            <variable pos='9:16'>T</variable>
+        </or>
+        <or pos='10:7'>
+            <not text='~' pos='10:4'>
+                <variable pos='10:5'>Q</variable>
+            </not>
+            <variable pos='10:10'>S</variable>
+        </or>
+        <not text='~' pos='13:4'>
+            <variable pos='13:5'>T</variable>
+        </not>
     </block>
 </pl>

@@ -2,10 +2,13 @@
 {
     # KB
     P and Q;
-    p => R;
-    (R and S) => T;
+
+    # p => R;
+    # (R and S) => T;
+    ~P or R;
+    ~R or ~S or T;
     ~Q or S;
 
-    # Goal
-    T;
+    # Goal (negated)
+    ~T;
 }
