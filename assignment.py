@@ -50,7 +50,8 @@ class Node:
 class Tree:
     def __init__(self):
         self.root = None
-        self.open_nodes = [] # to expand tree for tableu
+        self.leaf_nodes = [] # to expand tree for tableu
+        self.open_nodes = [] # nodes that can be expanded
     
     def expand(self, node: Node ,rule: Formula):
         pass
