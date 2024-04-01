@@ -5,7 +5,8 @@
 
     # p => R;
     # (R and S) => T;
-    ~P or R;
+    # ~P or R;
+    ~(P or ~R);
     ~R or ~S or T;
     ~Q or S;
 
