@@ -1,15 +1,10 @@
 # Alice Problem
 {
     # KB
-    P and Q;
-
-    # p => R;
-    # (R and S) => T;
-    ~P or R;
-    # ~(P or ~R);
-    ~R or ~S or T;
-    ~Q or S;
-
-    # Goal (negated)
-    ~T;
+    #P and Q;
+    #(R and S) => T;
+    #~P or R;
+    ~(P or ~R);
+    #~Q or S;
+    #~T;
 }
