@@ -1,23 +1,21 @@
 <pl>
     <block text='{' pos='21:0'>
-        <implies text='=&gt;' pos='22:21'>
-            <not text='~' pos='22:4'>
-                <implies text='=&gt;' pos='22:8'>
-                    <variable pos='22:6'>P</variable>
-                    <implies text='=&gt;' pos='22:14'>
-                        <variable pos='22:12'>Q</variable>
-                        <variable pos='22:17'>R</variable>
-                    </implies>
+        <implies text='=&gt;' pos='23:20'>
+            <implies text='=&gt;' pos='23:7'>
+                <variable pos='23:5'>P</variable>
+                <implies text='=&gt;' pos='23:13'>
+                    <variable pos='23:11'>Q</variable>
+                    <variable pos='23:16'>R</variable>
                 </implies>
-            </not>
-            <implies text='=&gt;' pos='22:34'>
-                <implies text='=&gt;' pos='22:28'>
-                    <variable pos='22:26'>P</variable>
-                    <variable pos='22:31'>Q</variable>
+            </implies>
+            <implies text='=&gt;' pos='23:33'>
+                <implies text='=&gt;' pos='23:27'>
+                    <variable pos='23:25'>P</variable>
+                    <variable pos='23:30'>Q</variable>
                 </implies>
-                <implies text='=&gt;' pos='22:40'>
-                    <variable pos='22:38'>P</variable>
-                    <variable pos='22:43'>R</variable>
+                <implies text='=&gt;' pos='23:39'>
+                    <variable pos='23:37'>P</variable>
+                    <variable pos='23:42'>R</variable>
                 </implies>
             </implies>
         </implies>

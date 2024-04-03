@@ -1,15 +1,13 @@
 <pl>
     <block>
         <implies>
-            <not>
+            <implies>
+                <variable>P</variable>
                 <implies>
-                    <variable>P</variable>
-                    <implies>
-                        <variable>Q</variable>
-                        <variable>R</variable>
-                    </implies>
+                    <variable>Q</variable>
+                    <variable>R</variable>
                 </implies>
-            </not>
+            </implies>
             <implies>
                 <implies>
                     <variable>P</variable>
