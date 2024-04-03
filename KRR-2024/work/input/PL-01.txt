@@ -1,6 +1,5 @@
 # Alice Problem
 {
-
     # KB
 
     P and Q;
