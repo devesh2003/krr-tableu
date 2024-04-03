@@ -1,32 +1,25 @@
 <pl>
     <block>
-        <and>
-            <variable>P</variable>
-            <variable>Q</variable>
-        </and>
-        <not>
-            <and>
-                <variable>P</variable>
-                <not>
-                    <variable>R</variable>
-                </not>
-            </and>
-        </not>
         <implies>
-            <and>
-                <variable>R</variable>
-                <variable>S</variable>
-            </and>
-            <variable>T</variable>
-        </implies>
-        <or>
             <not>
-                <variable>Q</variable>
+                <implies>
+                    <variable>P</variable>
+                    <implies>
+                        <variable>Q</variable>
+                        <variable>R</variable>
+                    </implies>
+                </implies>
             </not>
-            <variable>S</variable>
-        </or>
-        <not>
-            <variable>T</variable>
-        </not>
+            <implies>
+                <implies>
+                    <variable>P</variable>
+                    <variable>Q</variable>
+                </implies>
+                <implies>
+                    <variable>P</variable>
+                    <variable>R</variable>
+                </implies>
+            </implies>
+        </implies>
     </block>
 </pl>

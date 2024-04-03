@@ -1,14 +1,23 @@
 # Alice Problem
-{
+#{
     # KB
 
-    P and Q;
+    #P and Q;
+    
     # P => R;
     # ~P or R;
-    ~(P and ~R);
-    (R and S) => T;
+    #~(P and ~R);
+    
+    # (R and S) => T;
     # ~R or ~S or T;
-    ~Q or S;
+    
+    #~Q or S;
+    
     # Goal (negated)
-    ~T;
+    #~T;
+#}
+
+# FREGES 
+{
+    ~(P => (Q => R)) => ((P => Q) => (P => R));
 }
