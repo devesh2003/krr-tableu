@@ -4,14 +4,12 @@
             <variable pos='4:4'>P</variable>
             <variable pos='4:10'>Q</variable>
         </and>
-        <not text='~' pos='9:4'>
-            <or pos='9:8'>
-                <variable pos='9:6'>P</variable>
-                <not text='~' pos='9:11'>
-                    <variable pos='9:12'>R</variable>
-                </not>
-            </or>
-        </not>
+        <or pos='8:7'>
+            <not text='~' pos='8:4'>
+                <variable pos='8:5'>P</variable>
+            </not>
+            <variable pos='8:10'>R</variable>
+        </or>
         <or pos='10:13'>
             <or pos='10:7'>
                 <not text='~' pos='10:4'>
