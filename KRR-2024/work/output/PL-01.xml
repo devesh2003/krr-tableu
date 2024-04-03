@@ -4,23 +4,21 @@
             <variable>P</variable>
             <variable>Q</variable>
         </and>
-        <or>
-            <not>
+        <not>
+            <and>
                 <variable>P</variable>
-            </not>
-            <variable>R</variable>
-        </or>
-        <or>
-            <or>
                 <not>
                     <variable>R</variable>
                 </not>
-                <not>
-                    <variable>S</variable>
-                </not>
-            </or>
+            </and>
+        </not>
+        <implies>
+            <and>
+                <variable>R</variable>
+                <variable>S</variable>
+            </and>
             <variable>T</variable>
-        </or>
+        </implies>
         <or>
             <not>
                 <variable>Q</variable>

@@ -3,11 +3,11 @@
     # KB
 
     P and Q;
-    # p => R;
-    # (R and S) => T;
-    ~P or R;
-    # ~(P or ~R);
-    ~R or ~S or T;
+    # P => R;
+    # ~P or R;
+    ~(P and ~R);
+    (R and S) => T;
+    # ~R or ~S or T;
     ~Q or S;
     # Goal (negated)
     ~T;
