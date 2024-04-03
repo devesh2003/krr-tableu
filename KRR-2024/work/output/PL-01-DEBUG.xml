@@ -1,34 +1,12 @@
 <pl>
     <block text='{' pos='2:0'>
-        <and pos='4:6'>
-            <variable pos='4:4'>P</variable>
-            <variable pos='4:10'>Q</variable>
-        </and>
-        <or pos='8:7'>
-            <not text='~' pos='8:4'>
-                <variable pos='8:5'>P</variable>
-            </not>
-            <variable pos='8:10'>R</variable>
-        </or>
-        <or pos='10:13'>
-            <or pos='10:7'>
-                <not text='~' pos='10:4'>
-                    <variable pos='10:5'>R</variable>
-                </not>
-                <not text='~' pos='10:10'>
-                    <variable pos='10:11'>S</variable>
+        <not text='~' pos='7:4'>
+            <or pos='7:8'>
+                <variable pos='7:6'>P</variable>
+                <not text='~' pos='7:11'>
+                    <variable pos='7:12'>R</variable>
                 </not>
             </or>
-            <variable pos='10:16'>T</variable>
-        </or>
-        <or pos='11:7'>
-            <not text='~' pos='11:4'>
-                <variable pos='11:5'>Q</variable>
-            </not>
-            <variable pos='11:10'>S</variable>
-        </or>
-        <not text='~' pos='14:4'>
-            <variable pos='14:5'>T</variable>
         </not>
     </block>
 </pl>
